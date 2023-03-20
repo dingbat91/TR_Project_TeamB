@@ -30,16 +30,16 @@ dotenv.config();
 process.env.APIKEY;
 ```
 
-## No parameter Query (with .env API key)
+### No parameter Query (with .env API key)
 
 ```js
 const data = await APIFetch("/movie/550", process.env.APIKEY)`
 ```
 
-## Query with Parameters (with .env API key)
+### Query with Parameters (with .env API key)
 
 ```js
-await APIFetch("/search/person", process.env.APIKEY, [
+const data = await APIFetch("/search/person", process.env.APIKEY, [
 	{ param: "query", value: "Bradley" },
 ]);
 ```
