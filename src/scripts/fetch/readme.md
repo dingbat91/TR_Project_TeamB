@@ -12,7 +12,7 @@ APIFetch takes 3 parameters:
   - there is no prefix, no `api.env` just `.env`
   - open .env and on a line enter the following
   - `APIKEY=YOURAPIKEYHERE`
-  - To access your api key add the following to the start of the file using the below example
+  - To access your api key use the details in the Dotenv example below
 - params
   - This is an array made of the following interface `{param: string, value:any}`
   - Add any additional parameters to the query in here,
