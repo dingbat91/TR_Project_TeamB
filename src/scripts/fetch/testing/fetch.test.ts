@@ -115,6 +115,6 @@ describe("Parameter Test", () => {
 		const data = await APIFetch("/search/person", process.env.APIKEY, [
 			{ param: "query", value: "Bradley" },
 		]);
-		expect(data.results[0].name).tobe("Bradley Cooper");
+		expect(data.results[0].name).toBe("Bradley Cooper");
 	});
 });
