@@ -32,7 +32,9 @@ process.env.APIKEY;
 
 ## No parameter Query (with .env API key)
 
-`const data = await APIFetch("/movie/550", process.env.APIKEY)`
+```js
+const data = await APIFetch("/movie/550", process.env.APIKEY)`
+```
 
 ## Query with Parameters (with .env API key)
 
