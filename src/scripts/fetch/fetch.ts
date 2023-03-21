@@ -21,7 +21,7 @@ export const APIFetch = async (
 	let finalUrl = "";
 	//reduce additional parameters to string
 
-	if (URLparams !== undefined) {
+	if (URLparams && URLparams.length) {
 		const additionalParams = URLparams.reduce((acc, { param, value }) => {
 			return acc + `&${param}=${value}`;
 		}, "");
