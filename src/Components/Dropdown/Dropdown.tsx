@@ -1,7 +1,7 @@
 import React from "react";
 import { DropdownProps } from "./type";
 
-const DropdownComponent: React.FC<DropdownProps> = ({
+const Dropdown: React.FC<DropdownProps> = ({
   labelText,
   name,
   selectText,
@@ -40,4 +40,4 @@ const DropdownComponent: React.FC<DropdownProps> = ({
   );
 };
 
-export default DropdownComponent;
+export default Dropdown;
