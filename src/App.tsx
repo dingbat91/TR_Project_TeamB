@@ -35,7 +35,8 @@ function App() {
   };
   return (
     <div className="App">
-      <header>Team PopCorn</header>
+      {/* to test dropdown component uncomment below code */}
+      {/* <header>Team PopCorn</header>
       <Dropdown
         name="genreDropdown"
         onChangeHandler={handleGenreChange}
@@ -43,7 +44,7 @@ function App() {
         labelText=""
         selectText="genre"
         options={genres}
-      />
+      /> */}
     </div>
   );
 }
