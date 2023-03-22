@@ -7,9 +7,9 @@ describe(" Render Tests", () => {
 		const movieID = 550;
 
 		render(
-			<MemoryRouter initialEntries={[`/movies/${movieID}`]}>
+			<MemoryRouter initialEntries={[`/movie/${movieID}`]}>
 				<Routes>
-					<Route path='/movies/:movieID/*' element={<MoviePage />} />
+					<Route path='/movie/:movieID/*' element={<MoviePage />} />
 				</Routes>
 			</MemoryRouter>
 		);
@@ -20,9 +20,9 @@ describe(" Render Tests", () => {
 		const movieID = 603692;
 
 		render(
-			<MemoryRouter initialEntries={[`/movies/${movieID}`]}>
+			<MemoryRouter initialEntries={[`/movie/${movieID}`]}>
 				<Routes>
-					<Route path='/movies/:movieID/*' element={<MoviePage />} />
+					<Route path='/movie/:movieID/*' element={<MoviePage />} />
 				</Routes>
 			</MemoryRouter>
 		);
@@ -32,9 +32,9 @@ describe(" Render Tests", () => {
 	test("Page Maps Genre's correctly", async () => {
 		const movieID = 550;
 		render(
-			<MemoryRouter initialEntries={[`/movies/${movieID}`]}>
+			<MemoryRouter initialEntries={[`/movie/${movieID}`]}>
 				<Routes>
-					<Route path='/movies/:movieID/*' element={<MoviePage />} />
+					<Route path='/movie/:movieID/*' element={<MoviePage />} />
 				</Routes>
 			</MemoryRouter>
 		);
