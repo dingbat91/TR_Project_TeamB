@@ -2,21 +2,26 @@ import React, { useEffect, useState } from "react";
 import { APIFetch } from "../../scripts/fetch/fetch";
 import "./MoviePage.css";
 import { MovieDetails } from "../../types/movie";
+import { useParams } from "react-router-dom";
 
 export const MoviePage: React.FC = () => {
 	const [moviedata, setMovieData] = useState<MovieDetails>();
+	const { movieID } = useParams();
 
 	useEffect(() => {
 		const datafetch = async () => {
 			if (process.env.REACT_APP_APIKEY) {
-				const data = await APIFetch("/movie/550", process.env.REACT_APP_APIKEY);
+				const data = await APIFetch(
+					`/movie/${movieID}`,
+					process.env.REACT_APP_APIKEY
+				);
 				setMovieData(data);
 			} else {
 				throw new Error("Missing API KEY");
 			}
 		};
 		datafetch();
-	}, []);
+	}, [movieID]);
 
 	return (
 		<main className='moviePage'>
