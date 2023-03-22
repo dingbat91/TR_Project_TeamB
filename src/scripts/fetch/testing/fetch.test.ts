@@ -2,11 +2,11 @@ import { APIFetch } from "../fetch";
 
 describe("should fetch data correctly.", () => {
 	test("should fetch movie details", async () => {
-		if (!process.env.APIKEY) {
+		if (!process.env.REACT_APP_APIKEY) {
 			console.log(process.env);
-			throw new Error(`MISSING API KEY! Data: ${process.env.APIKEY}`);
+			throw new Error(`MISSING API KEY! Data: ${process.env.REACT_APP_APIKEY}`);
 		}
-		const data = await APIFetch("/movie/550", process.env.APIKEY);
+		const data = await APIFetch("/movie/550", process.env.REACT_APP_APIKEY);
 		expect(data).toStrictEqual({
 			adult: false,
 			backdrop_path: "/fCayJrkfRaCRCTh8GqN30f8oyQF.jpg",
@@ -97,24 +97,26 @@ describe("should fetch data correctly.", () => {
 	});
 
 	test("should get actor details", async () => {
-		if (!process.env.APIKEY) {
+		if (!process.env.REACT_APP_APIKEY) {
 			console.log(process.env);
-			throw new Error(`MISSING API KEY! Data: ${process.env.APIKEY}`);
+			throw new Error(`MISSING API KEY! Data: ${process.env.REACT_APP_APIKEY}`);
 		}
-		const data = await APIFetch("/person/287", process.env.APIKEY);
+		const data = await APIFetch("/person/287", process.env.REACT_APP_APIKEY);
 		expect(data.name).toStrictEqual("Brad Pitt");
 	});
 });
 
 describe("Parameter Test", () => {
 	test("Should find Actor", async () => {
-		if (!process.env.APIKEY) {
+		if (!process.env.REACT_APP_APIKEY) {
 			console.log(process.env);
-			throw new Error(`MISSING API KEY! Data: ${process.env.APIKEY}`);
+			throw new Error(`MISSING API KEY! Data: ${process.env.REACT_APP_APIKEY}`);
 		}
-		const data = await APIFetch("/search/person", process.env.APIKEY, [
-			{ param: "query", value: "Bradley" },
-		]);
+		const data = await APIFetch(
+			"/search/person",
+			process.env.REACT_APP_APIKEY,
+			[{ param: "query", value: "Bradley" }]
+		);
 		expect(data.results[0].name).toBe("Bradley Cooper");
 	});
 });
