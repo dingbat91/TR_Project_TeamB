@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import "./App.css";
+import Card from "./components/card/card";
 import Search from "./components/Search/search";
 import { getMoviesByKeyword } from "./scripts/utils";
 import { MovieDetails } from "./types/movie";
@@ -49,35 +50,24 @@ function App() {
   ) => {
     console.log("I am here", event.key);
     if (event.key === "Enter") {
-      const searchedMovieData = await getMoviesByKeyword("arnold");
-      console.log(
-        "🚀 ~ file: App.tsx:54 ~ App ~ searchedMovieData:",
-        searchedMovieData
-      );
+      const searchedMovieData = await getMoviesByKeyword(searchKeyword);
+
       setSearchedMovies(searchedMovieData);
     }
   };
 
   return (
-    <div className="App">
+    <div className="App bg-slate-200">
       <Search
         value={searchKeyword}
         onChangeHandler={handleSearchKeywordChange}
         onKeyDownHandler={handleSearchKeyDown}
       />
-      {/* <h1 className="text-teal-600 text-3xl font-bold underline">
-        Hello world!
-      </h1> */}
-      {/* to test dropdown component uncomment below code */}
-      {/* <header>Team PopCorn</header>
-      <Dropdown
-        name="genreDropdown"
-        onChangeHandler={handleGenreChange}
-        value={selectedGenreID}
-        labelText=""
-        selectText="genre"
-        options={genres}
-      /> */}
+      <div>
+        {searchedMovies.map((movie: MovieDetails) => (
+          <Card movieDetails={movie} />
+        ))}
+      </div>
     </div>
   );
 }
