@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
 import "./App.css";
+import Card from "./components/card/card";
+import Search from "./components/Search/search";
+import { getMoviesByKeyword } from "./scripts/utils";
+import { MovieDetails } from "./types/movie";
 
 function App() {
   //TODO Implement https://api.themoviedb.org/3/genre/movie/list?api_key=API_KEY&language=en-US
@@ -32,18 +36,38 @@ function App() {
   // const handleGenreChange = (value: string) => {
   //   setSelectedGenreID(value);
   // };
+
+  const [searchKeyword, setSearchKeyword] = useState<string>("");
+  const [searchedMovies, setSearchedMovies] = useState<MovieDetails[]>([]);
+
+  const handleSearchKeywordChange = (value: string) => {
+    console.log(value);
+    setSearchKeyword(value);
+  };
+
+  const handleSearchKeyDown = async (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    console.log("I am here", event.key);
+    if (event.key === "Enter") {
+      const searchedMovieData = await getMoviesByKeyword(searchKeyword);
+
+      setSearchedMovies(searchedMovieData);
+    }
+  };
+
   return (
-    <div className="App">
-      {/* to test dropdown component uncomment below code */}
-      {/* <header>Team PopCorn</header>
-      <Dropdown
-        name="genreDropdown"
-        onChangeHandler={handleGenreChange}
-        value={selectedGenreID}
-        labelText=""
-        selectText="genre"
-        options={genres}
-      /> */}
+    <div className="App bg-slate-200">
+      <Search
+        value={searchKeyword}
+        onChangeHandler={handleSearchKeywordChange}
+        onKeyDownHandler={handleSearchKeyDown}
+      />
+      <div>
+        {searchedMovies.map((movie: MovieDetails) => (
+          <Card movieDetails={movie} />
+        ))}
+      </div>
     </div>
   );
 }

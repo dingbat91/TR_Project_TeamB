@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import DropdownComponent from "./DropdownComponent";
+import Dropdown from "./Dropdown";
 const onchangeHandler = jest.fn();
 const dropdownOptions = [
   {
@@ -18,7 +18,7 @@ const dropdownOptions = [
 
 test("renders select element correctly with labelText", () => {
   render(
-    <DropdownComponent
+    <Dropdown
       name="select-name"
       value=""
       onChangeHandler={onchangeHandler}
@@ -34,7 +34,7 @@ test("renders select element correctly with labelText", () => {
 
 test("renders first value correctly and disabled when passed selectText as props", () => {
   render(
-    <DropdownComponent
+    <Dropdown
       value=""
       selectText={"select option"}
       onChangeHandler={onchangeHandler}
@@ -51,7 +51,7 @@ test("renders first value correctly and disabled when passed selectText as props
 
 test("renders select default value correctly when pass as props", () => {
   render(
-    <DropdownComponent
+    <Dropdown
       value={"2"}
       options={dropdownOptions}
       onChangeHandler={onchangeHandler}
@@ -65,7 +65,7 @@ test("renders select default value correctly when pass as props", () => {
 
 test("renders select value correctly on onchange handler", () => {
   render(
-    <DropdownComponent
+    <Dropdown
       options={dropdownOptions}
       value={"0"}
       onChangeHandler={onchangeHandler}
