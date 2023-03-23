@@ -10,7 +10,7 @@ import {
 
 export const handlers = [
   rest.get("https://api.themoviedb.org/3/movie/550", (req, res, ctx) => {
-    https: return res(ctx.status(200), ctx.json(movieID550DetailsMockResponse));
+    return res(ctx.status(200), ctx.json(movieID550DetailsMockResponse));
   }),
   rest.get("https://api.themoviedb.org/3/movie/603692", (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(movieID603692DetailsMockResponse));
