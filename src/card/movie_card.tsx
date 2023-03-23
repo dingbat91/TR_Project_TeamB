@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { APIFetch } from "../scripts/fetch/fetch";
 import { MovieDetails } from "../types/movie";
+import "./movie_card.css";
 
 interface MovieCardInterface {
 	movieid: number;
@@ -8,18 +9,12 @@ interface MovieCardInterface {
 
 export const MovieData: React.FC<MovieCardInterface> = ({ movieid }) => {
 	const [moviedata, setMovieData] = useState<MovieDetails>();
-	const movieID = { movieid };
+	const movieID = movieid;
 
 	useEffect(() => {
 		const datafetch = async () => {
-			if (process.env.REACT_APP_APIKEY) {
-				const data = await APIFetch(
-					`${process.env.REACT_APP_BASE_URL},/movie/${movieID}`
-				);
-				setMovieData(data);
-			} else {
-				throw new Error("Missing API KEY");
-			}
+			const data = await APIFetch(`/movie/${movieID}`);
+			setMovieData(data);
 		};
 		datafetch();
 	}, []);
@@ -34,7 +29,6 @@ export const MovieData: React.FC<MovieCardInterface> = ({ movieid }) => {
 				src={imagesrc}
 				alt={moviedata?.original_title}
 			/>
-			<h3 className='card__title'>{moviedata?.original_title}</h3>
 		</article>
 	);
 };
