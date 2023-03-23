@@ -1,31 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
 import { MovieData } from "../../card/movie_card";
-import { APIFetch } from "../../scripts/fetch/fetch";
-import { TopRatedMovie } from "../../types/movie";
+import { GenreContext } from "../../pages/homepage/Homepage";
+
 import Dropdown from "../Dropdown/Dropdown";
 import "./CardRow.css";
 
 interface CardRowInterface {
-	movieIDs: number[];
+	movies: movieDetails[];
 }
 
-export const CardRow: React.FC = () => {
-	const [movieIDs, setMovieIDs] = useState<number[]>([]);
+interface movieDetails {
+	id: number;
+	genre: number[];
+}
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const data = (await APIFetch("/movie/top_rated")) as TopRatedMovie;
-			const IDs = data.results.map((result) => result.id);
-			setMovieIDs(IDs);
-		};
-		fetchData();
-	}, []);
+export const CardRow: React.FC<CardRowInterface> = ({ movies }) => {
+	const [filter, setFilter] = useState<string>("A");
+	const Genres = useContext(GenreContext);
+
+	console.log(filter);
+	console.log(Genres);
 
 	return (
-		<div className='CardRow'>
-			{movieIDs.map((id) => (
-				<MovieData movieid={id} />
-			))}
-		</div>
+		<>
+			<Dropdown
+				options={Genres}
+				name='RowLabel'
+				value=''
+				onChangeHandler={setFilter}
+			/>
+			<div className='CardRow'>
+				{movies.map((movie) => (
+					<>
+						{(movie.genre.includes(parseInt(filter)) || filter === "A") && (
+							<MovieData movieid={movie.id} />
+						)}
+					</>
+				))}
+			</div>
+		</>
 	);
 };

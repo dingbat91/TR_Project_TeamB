@@ -13,12 +13,8 @@ export const MovieData: React.FC<MovieCardInterface> = ({ movieid }) => {
 
 	useEffect(() => {
 		const datafetch = async () => {
-			if (process.env.REACT_APP_APIKEY) {
-				const data = await APIFetch(`/movie/${movieID}`);
-				setMovieData(data);
-			} else {
-				throw new Error("Missing API KEY");
-			}
+			const data = await APIFetch(`/movie/${movieID}`);
+			setMovieData(data);
 		};
 		datafetch();
 	}, []);
