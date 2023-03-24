@@ -5,9 +5,10 @@ import "./movie_card.css";
 
 interface MovieCardInterface {
 	movieid: number;
+	title: string;
 }
 
-export const MovieData: React.FC<MovieCardInterface> = ({ movieid }) => {
+export const MovieData: React.FC<MovieCardInterface> = ({ movieid, title }) => {
 	const [moviedata, setMovieData] = useState<MovieDetails>();
 	const movieID = movieid;
 
@@ -19,16 +20,17 @@ export const MovieData: React.FC<MovieCardInterface> = ({ movieid }) => {
 		datafetch();
 	}, []);
 
-	const imagesrc = `https://image.tmdb.org/t/p/original${moviedata?.poster_path}`;
-
+	const posterImage = `https://image.tmdb.org/t/p/original${moviedata?.poster_path}`; 
+	const backdropImage = `https://image.tmdb.org/t/p/original${moviedata?.backdrop_path}`;
+	const imageSource = title === 'Netflix' ? posterImage : backdropImage;
 	return (
-		<article className='card'>
+		<>
 			<img
 				className='card__img'
 				data-id={moviedata?.id}
-				src={imagesrc}
+				src={imageSource}
 				alt={moviedata?.original_title}
-			/>
-		</article>
+			/>		
+		</>
 	);
 };
