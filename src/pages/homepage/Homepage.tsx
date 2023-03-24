@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import "./Homepage.css";
 import Card from "../../components/card/card";
 import Search from "../../components/Search/search";
 import { getMoviesByKeyword } from "../../scripts/utils";
 import { MovieDetails } from "../../types/movie";
+import { Genre } from "../../types/genres";
+import { APIFetch } from "../../scripts/fetch/fetch";
+import { CardRow } from "../../components/cardRow/CardRow";
+
+export const GenreContext = createContext<Genre[]>([]);
 
 export function Homepage() {
+	const [genrelist, setGenreList] = useState<Genre[]>([]);
+	console.log(GenreContext);
+	useEffect(() => {
+		const fetchGenre = async () => {
+			const data = await APIFetch("/genre/movie/list");
+			setGenreList(data.genres);
+		};
+		fetchGenre();
+	}, []);
+
 	//TODO Implement https://api.themoviedb.org/3/genre/movie/list?api_key=API_KEY&language=en-US
 	// to get all genres
 	// const [genres, setGenres] = useState<Array<any>>([
@@ -67,6 +82,9 @@ export function Homepage() {
 					<Card movieDetails={movie} />
 				))}
 			</div>
+			<GenreContext.Provider value={genrelist}>
+				This is where card rows go!
+			</GenreContext.Provider>
 		</div>
 	);
 }
