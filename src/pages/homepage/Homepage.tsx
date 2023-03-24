@@ -1,19 +1,19 @@
 import React, { createContext, useEffect, useState } from "react";
 // import "./Homepage.css";
-import Card from "../../Components/card/card";
-import Search from "../../Components/Search/search";
+import Card from "../../components/card/card";
+import Search from "../../components/Search/search";
 import { getMoviesByKeyword } from "../../scripts/utils";
 import { MovieDetails, PopularMoviesResponse } from "../../types/movie";
 import { Genre } from "../../types/genres";
 import { APIFetch } from "../../scripts/fetch/fetch";
-import { CardRow } from "../../Components/cardRow/CardRow";
-import { movieDetails } from "../../Components/cardRow/CardRow";
+import { CardRow } from "../../components/cardRow/CardRow";
+import { movieDetails } from "../../components/cardRow/CardRow";
 
 export const GenreContext = createContext<Genre[]>([]);
 
 export function Homepage() {
 	const [genrelist, setGenreList] = useState<Genre[]>([]);
-	const [popularMovies, setPopularMovies] = useState<movieDetails[]>([])
+	const [popularMovies, setPopularMovies] = useState<movieDetails[]>([]);
 
 	//Genre useEffect
 	useEffect(() => {
@@ -27,12 +27,14 @@ export function Homepage() {
 	//Movie list useEffect
 	useEffect(() => {
 		const fetchRows = async () => {
-			const data = await APIFetch("/movie/popular") as PopularMoviesResponse
-			const popdata: movieDetails[] = data.results.map((movie) => { return { id: movie.id, genre: movie.genre_ids } })
-			setPopularMovies(popdata)
-		}
-		fetchRows()
-	}, [])
+			const data = (await APIFetch("/movie/popular")) as PopularMoviesResponse;
+			const popdata: movieDetails[] = data.results.map((movie) => {
+				return { id: movie.id, genre: movie.genre_ids };
+			});
+			setPopularMovies(popdata);
+		};
+		fetchRows();
+	}, []);
 
 	//TODO Implement https://api.themoviedb.org/3/genre/movie/list?api_key=API_KEY&language=en-US
 	// to get all genres
@@ -96,29 +98,28 @@ export function Homepage() {
 				))}
 			</div>
 			<GenreContext.Provider value={genrelist}>
-				<div className="card__netflixOriginal">
-					<div className="card_title">
+				<div className='card__netflixOriginal'>
+					<div className='card_title'>
 						<h2>Netflix Original</h2>
 					</div>
-					<div className="original__movies">
-						<CardRow title="Netflix" movies={popularMovies} />
+					<div className='original__movies'>
+						<CardRow title='Netflix' movies={popularMovies} />
 					</div>
 				</div>
-				<div className="card__movies">
-					<div className="movies__header">
+				<div className='card__movies'>
+					<div className='movies__header'>
 						<h2>Trending Now</h2>
 					</div>
-					<div className="movies__container">
-					<CardRow title="Trending" movies={popularMovies} />
+					<div className='movies__container'>
+						<CardRow title='Trending' movies={popularMovies} />
 					</div>
-					
 				</div>
-				<div className="card__movies">
-					<div className="movies__header">
+				<div className='card__movies'>
+					<div className='movies__header'>
 						<h2>Top Rated</h2>
 					</div>
-					<div className="movies__container">
-					<CardRow title="top rated"  movies={popularMovies} />
+					<div className='movies__container'>
+						<CardRow title='top rated' movies={popularMovies} />
 					</div>
 				</div>
 			</GenreContext.Provider>
