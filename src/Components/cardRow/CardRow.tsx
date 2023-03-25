@@ -1,5 +1,6 @@
 import { title } from "process";
 import React, { useState, useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { MovieData } from "../../card/movie_card";
 import { GenreContext } from "../../pages/homepage/Homepage";
 
@@ -19,7 +20,7 @@ export interface movieDetails {
 export const CardRow: React.FC<CardRowInterface> = ({ movies, title }) => {
 	const [filter, setFilter] = useState<string>("A");
 	const Genres = useContext(GenreContext);
-	
+
 	console.log(filter);
 	console.log(Genres);
 
@@ -31,12 +32,14 @@ export const CardRow: React.FC<CardRowInterface> = ({ movies, title }) => {
 				value=''
 				onChangeHandler={setFilter}
 			/> */}
-			
+
 			<>
 				{movies.map((movie) => (
 					<>
 						{(movie.genre.includes(parseInt(filter)) || filter === "A") && (
-							<MovieData movieid={movie.id} title={title}/>
+							<NavLink to={`/movie/${movie.id}`}>
+								<MovieData movieid={movie.id} title={title} />
+							</NavLink>
 						)}
 					</>
 				))}
