@@ -10,9 +10,9 @@ test("renders search element correctly with aria label", () => {
   expect(SearchComponentElement).toBeInTheDocument();
 });
 
-test("renders searched value correctly on onchange handler", () => {
-  render(<SearchInput value="test" onChangeHandler={onChangeHandler} />);
-  const SearchComponentElement = screen.getByLabelText("search");
+test("renders searched value correctly on onchange handler", async () => {
+  render(<SearchInput value="movie" onChangeHandler={onChangeHandler} />);
+  const SearchComponentElement = screen.getByRole("textbox");
 
   fireEvent.change(SearchComponentElement, { target: { value: "movie" } });
   expect(SearchComponentElement).toHaveValue("movie");
