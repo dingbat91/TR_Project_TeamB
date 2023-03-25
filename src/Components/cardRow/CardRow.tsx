@@ -1,6 +1,5 @@
-import { title } from "process";
 import React, { useState, useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+
 import { MovieData } from "../../card/movie_card";
 import { GenreContext } from "../../pages/homepage/Homepage";
 
@@ -37,9 +36,7 @@ export const CardRow: React.FC<CardRowInterface> = ({ movies, title }) => {
 				{movies.map((movie) => (
 					<>
 						{(movie.genre.includes(parseInt(filter)) || filter === "A") && (
-							<NavLink to={`/movie/${movie.id}`}>
-								<MovieData movieid={movie.id} title={title} />
-							</NavLink>
+							<MovieData movieid={movie.id} title={title} />
 						)}
 					</>
 				))}
