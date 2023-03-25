@@ -83,18 +83,22 @@ export const MoviePage: React.FC = () => {
 				{!credits && <p>Loading...</p>}
 				{credits &&
 					credits.cast &&
-					credits.cast.slice(0, 10).map((cast) => (
-						<article className='moviePage__Cast__card'>
-							<img
-								className='moviePage__Cast__card__img'
-								src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
-							/>
-							<p className='moviePage__Cast__card__name'>{cast.name}</p>
-							<p className='moviePage__Cast__card__character'>
-								{`"${cast.character}"`}
-							</p>
-						</article>
-					))}
+					credits.cast.slice(0, 10).map(
+						(cast) =>
+							cast.profile_path && (
+								<article className='moviePage__Cast__card'>
+									<img
+										className='moviePage__Cast__card__img'
+										src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
+										alt={cast.name}
+									/>
+									<p className='moviePage__Cast__card__name'>{cast.name}</p>
+									<p className='moviePage__Cast__card__character'>
+										{`"${cast.character}"`}
+									</p>
+								</article>
+							)
+					)}
 			</article>
 			<h1>Trailers</h1>
 			<article className='moviePage__Trailer'>
