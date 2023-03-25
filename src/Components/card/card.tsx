@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { MovieDetails } from "../../types/movie";
 
 interface CardProps {
@@ -8,6 +9,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({
   movieDetails: { poster_path, original_title, release_date, overview, id },
 }) => {
+  const navigate = useNavigate();
   return (
     <>
       {poster_path ? (
@@ -16,7 +18,7 @@ const Card: React.FC<CardProps> = ({
             <div className="md:flex-shrink-0">
               <img
                 className="md:w-56"
-                src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${poster_path}`}
+                src={`https://image.tmdb.org/t/p/original/${poster_path}`}
                 alt={`${original_title} movie poster`}
               />
             </div>
@@ -33,8 +35,11 @@ const Card: React.FC<CardProps> = ({
                 </p>
               </div>
               <div className="button-container flex justify-between mb-2">
-                <button className="text-lg mr-4 lg:text-sm text-gray-200">
-                  More Info-{id}
+                <button
+                  className="text-lg mr-4 lg:text-sm text-gray-200"
+                  onClick={() => navigate(`/movie/${id}`)}
+                >
+                  More Info
                 </button>
               </div>
             </div>
