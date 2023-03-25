@@ -7,7 +7,9 @@ export const getMoviesByKeyword = async (searchKeyword: string) => {
     { param: "include_adult", value: "false" },
     { param: "query", value: searchKeyword },
   ]);
+
   if (response.results) {
     return response.results;
   }
+  return response;
 };

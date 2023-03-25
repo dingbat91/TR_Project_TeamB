@@ -419,3 +419,47 @@ export const searchByPersonMockResponse = {
   total_pages: 67,
   total_results: 1336,
 };
+
+export const searchKeywordMockResponse = {
+  page: 1,
+  results: [
+    {
+      adult: false,
+      backdrop_path: "/nL9SNohJaUQObVO3LyvDQbaC0jm.jpg",
+      id: 119884,
+      title: "Arnold",
+      original_language: "en",
+      original_title: "Arnold",
+      overview:
+        "Karen marries Arnold at his funeral and continues to get his money as long as she stays by his coffin. Meanwhile, various oddball relatives after Arnold's wealth are being killed in a creative variety of ways.",
+      poster_path: "/eqlGD4RRiElW9OIvqupEfUBfRXj.jpg",
+      media_type: "movie",
+      genre_ids: [53, 27, 35, 9648],
+      popularity: 2.191,
+      release_date: "1973-11-16",
+      video: false,
+      vote_average: 4.708,
+      vote_count: 12,
+    },
+    {
+      adult: false,
+      backdrop_path: null,
+      id: 803975,
+      title: "Arnold",
+      original_language: "en",
+      original_title: "Arnold",
+      overview:
+        "Arnold accidentally knocks out a bully named Harold during a baseball game, and Harold gives Arnold 24 hours to live before he beats him to a pulp.  Theatrical short pilot of Hey Arnold.",
+      poster_path: "/gkjGv864BJfzMX5RjX6bX4CR1c2.jpg",
+      media_type: "movie",
+      genre_ids: [16],
+      popularity: 0.6,
+      release_date: "1996-07-10",
+      video: false,
+      vote_average: 10.0,
+      vote_count: 1,
+    },
+  ],
+  total_pages: 70,
+  total_results: 1383,
+};

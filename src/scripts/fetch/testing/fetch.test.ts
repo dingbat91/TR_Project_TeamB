@@ -37,7 +37,7 @@ describe("should fetch data correctly.", () => {
       rest.get(
         `${process.env.REACT_APP_BASE_URL}/movie/550`,
         (req, res, ctx) => {
-          return res(ctx.status(404, "Unauthorized!"));
+          return res(ctx.status(401, "Unauthorized!"));
         }
       )
     );
