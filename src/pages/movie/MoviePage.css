@@ -58,8 +58,13 @@
 }
 
 .infoBox__detailsBox h3 {
-	font-size: 0.8em;
+	font-size: 1.5em;
 	font-weight: bold;
+}
+
+.infoBox__detailsBox p {
+	font-size: 1.2em;
+	text-indent: 1.3em;
 }
 
 .moviePage__Cast {
@@ -67,6 +72,11 @@
 	gap: 20px;
 	padding: 10px;
 	justify-content: space-between;
+}
+
+.moviePage__Cast__title {
+	font-size: 2em;
+	font-weight: bold;
 }
 
 .moviePage__Cast__card {
@@ -111,4 +121,9 @@
 	display: flex;
 	flex-direction: column;
 	border: 1.5px rgba(255, 255, 255, 0.6) solid;
+}
+
+.moviePage__Trailer__title {
+	font-size: 1.5em;
+	font-weight: bold;
 }

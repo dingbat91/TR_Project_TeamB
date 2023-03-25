@@ -77,7 +77,7 @@ export const MoviePage: React.FC = () => {
 					</article>
 				</article>
 			</article>
-			<h1 className='moviepage__Cast__title'>Top Cast</h1>
+			<h1 className='moviePage__Cast__title'>Top Cast</h1>
 			<article className='moviePage__Cast'>
 				{/*If credits is defined: Create a card for first ten members*/}
 				{!credits && <p>Loading...</p>}
@@ -100,8 +100,11 @@ export const MoviePage: React.FC = () => {
 							)
 					)}
 			</article>
-			<h1>Trailers</h1>
+
 			<article className='moviePage__Trailer'>
+				{movieTrailerData && movieTrailerData.length >= 1 && (
+					<h1 className='moviePage__Trailer__title'>Trailers</h1>
+				)}
 				{movieTrailerData?.slice(0, 5).map((trailer) => (
 					<iframe
 						className='moviePage__Trailer__video'
