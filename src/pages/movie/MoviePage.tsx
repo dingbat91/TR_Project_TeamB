@@ -21,6 +21,7 @@ export const MoviePage: React.FC = () => {
 			const data = await APIFetch(`/movie/${movieID}`);
 			setMovieData(data);
 
+
 			const trailerdata: movieTrailerDetails = await APIFetch(
 				`/movie/${movieID}/videos`
 			);
