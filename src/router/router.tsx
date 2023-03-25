@@ -8,7 +8,7 @@ export const Router = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} />
-        <Route path="/movie/:movieID" element={<MoviePage />} />
+        <Route path="movie:movieID" element={<MoviePage />} />
       </Route>
     </Routes>
   );

@@ -1,82 +1,75 @@
-import React, { useCallback, useState } from "react";
-import "./Homepage.css";
+import React, { createContext, useEffect, useState } from "react";
+// import "./Homepage.css";
 import Card from "../../components/card/card";
-import Search from "../../components/Search/search";
 import { getMoviesByKeyword } from "../../scripts/utils";
-import { MovieDetails } from "../../types/movie";
-import debounce from "lodash.debounce";
+import { MovieDetails, PopularMoviesResponse } from "../../types/movie";
+import { Genre } from "../../types/genres";
+import { APIFetch } from "../../scripts/fetch/fetch";
+import { CardRow } from "../../components/cardRow/CardRow";
+import { movieDetails } from "../../components/cardRow/CardRow";
+
+export const GenreContext = createContext<Genre[]>([]);
 
 export function Homepage() {
-  //TODO Implement https://api.themoviedb.org/3/genre/movie/list?api_key=API_KEY&language=en-US
-  // to get all genres
-  // const [genres, setGenres] = useState<Array<any>>([
-  //   {
-  //     id: 28,
-  //     name: "Action",
-  //   },
-  //   {
-  //     id: 12,
-  //     name: "Adventure",
-  //   },
-  //   {
-  //     id: 16,
-  //     name: "Animation",
-  //   },
-  //   {
-  //     id: 35,
-  //     name: "Comedy",
-  //   },
-  //   {
-  //     id: 80,
-  //     name: "Crime",
-  //   },
-  // ]);
-  // const [selectedGenreID, setSelectedGenreID] = useState<string>(genres[0].id);
+  const [genrelist, setGenreList] = useState<Genre[]>([]);
+  const [popularMovies, setPopularMovies] = useState<movieDetails[]>([]);
 
-  // const handleGenreChange = (value: string) => {
-  //   setSelectedGenreID(value);
-  // };
+  //Genre useEffect
+  useEffect(() => {
+    const fetchGenre = async () => {
+      const data = await APIFetch("/genre/movie/list");
+      setGenreList(data.genres);
+    };
+    fetchGenre();
+  }, []);
 
-  // const [searchKeyword, setSearchKeyword] = useState<string>("");
-  const [searchedMovies, setSearchedMovies] = useState<MovieDetails[]>([]);
+  //Movie list useEffect
+  useEffect(() => {
+    const fetchRows = async () => {
+      const data = (await APIFetch("/movie/popular")) as PopularMoviesResponse;
+      const popdata: movieDetails[] = data.results.map((movie) => {
+        return { id: movie.id, genre: movie.genre_ids };
+      });
+      setPopularMovies(popdata);
+    };
+    fetchRows();
+  }, []);
 
-  const handleSearchKeywordChange = async (value: string) => {
-    if (value) {
-      const searchedMovieData = await getMoviesByKeyword(value);
-      setSearchedMovies(searchedMovieData);
-    } else {
-      setSearchedMovies([]);
-    }
-  };
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const searchDebounceCallback = useCallback(
-    debounce(handleSearchKeywordChange, 500),
-    []
-  );
-  // const handleSearchKeyDown = async (
-  //   event: React.KeyboardEvent<HTMLInputElement>
-  // ) => {
-  //   if (event.key === "Enter") {
-  //     const searchedMovieData = await getMoviesByKeyword(searchKeyword);
-  //     setSearchedMovies(searchedMovieData);
-  //   }
-  // };
+  //   const [searchedMovies, setSearchedMovies] = useState<MovieDetails[]>([]);
 
   return (
-    <div className="App bg-slate-200">
-      <Search
-        onChangeHandler={searchDebounceCallback}
-        searchResults={searchedMovies}
-        //onKeyDownHandler={handleSearchKeyDown}
-      />
+    <div className="App">
       {/* <div>
         {searchedMovies.map((movie: MovieDetails) => (
-          <React.Fragment key={movie.id}>
-            <Card movieDetails={movie} />
-          </React.Fragment>
+          <Card movieDetails={movie} />
         ))}
       </div> */}
+      <GenreContext.Provider value={genrelist}>
+        <div className="card__netflixOriginal">
+          <div className="card_title">
+            <h2>Netflix Original</h2>
+          </div>
+          <div className="original__movies">
+            <CardRow title="Netflix" movies={popularMovies} />
+          </div>
+        </div>
+        <div className="card__movies">
+          <div className="movies__header">
+            <h2>Trending Now</h2>
+          </div>
+          <div className="movies__container">
+            <CardRow title="Trending" movies={popularMovies} />
+          </div>
+        </div>
+        <div className="card__movies">
+          <div className="movies__header">
+            <h2>Top Rated</h2>
+          </div>
+          <div className="movies__container">
+            <CardRow title="top rated" movies={popularMovies} />
+          </div>
+        </div>
+      </GenreContext.Provider>
     </div>
   );
 }
