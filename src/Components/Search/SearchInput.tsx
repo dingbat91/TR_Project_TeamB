@@ -28,7 +28,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onChangeHandler }) => {
           onChangeHandler(target.value);
         }}
         aria-label="search"
-        placeholder="Search something.."
+        placeholder="Search movies.."
       />
     </>
   );
