@@ -25,6 +25,7 @@ export const MoviePage: React.FC = () => {
       <h1 className="moviePage__title">{moviedata?.original_title}</h1>
       <div className="moviePage__details">
         <img
+          alt="movie poster"
           className="moviePage__details__img"
           src={`https://image.tmdb.org/t/p/original${moviedata?.poster_path}`}
         />
@@ -39,13 +40,13 @@ export const MoviePage: React.FC = () => {
               <p className="detailsBox__releaseStatus">{moviedata?.status}</p>
               <h3 className="detailsBox__genre__Title">Genre</h3>
               <p className="detailsBox__genre">
-                {moviedata?.genres.map((genre) => genre.name).join(", ")}
+                {moviedata?.genres?.map((genre) => genre.name).join(", ")}
               </p>
             </div>
             <div className="detailsBox__Col2">
               <h3 className="detailsBox__budget__title">Budget</h3>
               <p className="detailsBox__budget">
-                {moviedata?.budget.toLocaleString("en-US", {
+                {moviedata?.budget?.toLocaleString("en-US", {
                   style: "currency",
                   currency: "USD",
                 })}

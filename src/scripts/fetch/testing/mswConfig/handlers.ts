@@ -16,14 +16,13 @@ export const handlers = [
     return res(ctx.status(200), ctx.json(movieID603692DetailsMockResponse));
   }),
   rest.get("https://api.themoviedb.org/3/person/287", (req, res, ctx) => {
-    ctx.status(200);
-    ctx.json(personID287DetailsMockResponse);
+    return res(ctx.status(200), ctx.json(personID287DetailsMockResponse));
   }),
   rest.get("https://api.themoviedb.org/3/search/person", (req, res, ctx) => {
-    const { query } = req.params;
+    const query = req.url.searchParams.get("query");
+
     if (query === "Bradley") {
-      ctx.status(200);
-      ctx.json(searchByPersonMockResponse);
+      return res(ctx.status(200), ctx.json(searchByPersonMockResponse));
     }
   }),
 ];
