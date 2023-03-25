@@ -1,0 +1,72 @@
+.actor__container {
+	display: flex;
+	flex-direction: column;
+}
+
+.actor__Name {
+	text-align: center;
+	padding-top: 1em;
+	font: bold;
+	font-size: 2.5em;
+}
+
+.actor__bioContainer {
+	display: flex;
+	justify-content: center;
+	gap: 5em;
+}
+
+.actor__biocontainer__imgContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.actor__bioContainer__details {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.popularMovies__list {
+	display: flex;
+	justify-content: center;
+	gap: 2em;
+	padding: 1.5em;
+}
+
+.popularMovies__title {
+	font-weight: bold;
+	font-size: 1.5em;
+	padding-top: 1em;
+}
+
+.popularMovies__list__item {
+	width: 20em;
+	background-color: rgba(50, 50, 50, 0.25);
+}
+
+.popularMovies__list__item__img {
+	cursor: pointer;
+}
+
+.actor__movieTrailers {
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	width: fit-content;
+	height: auto;
+}
+
+.movieTrailers__list {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 2em;
+	padding: 1.5em;
+	align-items: center;
+}
+.movieTrailers__list__item {
+	aspect-ratio: 16/9;
+	width: 100%;
+}
