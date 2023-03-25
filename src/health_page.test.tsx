@@ -3,12 +3,18 @@ import { App } from "./App";
 import { MovieData } from "./card/movie_card";
 import Dropdown from "./components/Dropdown/Dropdown";
 import Search from "./components/Search/search";
-import { SearchProps } from "./components/Search/type";
+import { SearchInputProps, SearchProps } from "./components/Search/type";
 import { MovieCardInterface } from "./card/movie_card";
 import Card from "./components/card/card";
 import { CardProps } from "./components/card/card";
-import { MovieDetails } from "./types/movie";
 
+
+//Mocks useNavigate from react-router-dom
+const mockedUsedNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom') as any,
+ useNavigate: () => mockedUsedNavigate,
+}));
 //// test Dropdown component
 const onchangeHandler = jest.fn();
 const dropdownOptions = [
@@ -90,10 +96,10 @@ test("renders select value correctly on onchange handler for DropDown", () => {
 
 //// test search component
 test("renders search component and the input box is existing", () => {
-    const searchProps: SearchProps = {
-        value: "Testing",
-        onChangeHandler: () => {},
-        onKeyDownHandler: () => {},
+    const searchProps: SearchInputProps = {
+        value: "",
+        onChangeHandler: ()=>jest.fn(),
+        onKeyDownHandler: () => jest.,
     }
     render (<Search {...searchProps} />);
 

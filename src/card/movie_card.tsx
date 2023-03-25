@@ -4,7 +4,7 @@ import { MovieDetails } from "../types/movie";
 import "./movie_card.css";
 import { useNavigate } from "react-router-dom";
 
-interface MovieCardInterface {
+export interface MovieCardInterface {
 	movieid: number;
 	title: string;
 }
