@@ -9,6 +9,7 @@ import { APIFetch } from "../../scripts/fetch/fetch";
 import { CardRow } from "../../Components/cardRow/CardRow";
 import { movieDetails } from "../../Components/cardRow/CardRow";
 
+
 export const GenreContext = createContext<Genre[]>([]);
 
 export function Homepage() {
@@ -29,6 +30,7 @@ export function Homepage() {
 		const fetchRows = async () => {
 			const data = await APIFetch("/movie/popular") as PopularMoviesResponse
 			const popdata: movieDetails[] = data.results.map((movie) => { return { id: movie.id, genre: movie.genre_ids } })
+			console.log(popdata);
 			setPopularMovies(popdata)
 		}
 		fetchRows()

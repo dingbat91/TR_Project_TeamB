@@ -3,7 +3,7 @@ import { APIFetch } from "../scripts/fetch/fetch";
 import { MovieDetails } from "../types/movie";
 import "./movie_card.css";
 
-interface MovieCardInterface {
+export interface MovieCardInterface {
 	movieid: number;
 	title: string;
 }
@@ -20,8 +20,8 @@ export const MovieData: React.FC<MovieCardInterface> = ({ movieid, title }) => {
 		datafetch();
 	}, []);
 
-	const posterImage = `https://image.tmdb.org/t/p/original${moviedata?.poster_path}`; 
-	const backdropImage = `https://image.tmdb.org/t/p/original${moviedata?.backdrop_path}`;
+	const posterImage = `https://image.tmdb.org/t/p/w500${moviedata?.poster_path}`; 
+	const backdropImage = `https://image.tmdb.org/t/p/w500${moviedata?.backdrop_path}`;
 	const imageSource = title === 'Netflix' ? posterImage : backdropImage;
 	return (
 		<>
