@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useSearchDetails } from "../../search_context";
 import { MovieDetails } from "../../types/movie";
-import { UpdateSearchedMoviesContext } from "../Header/header";
 import { SearchResults } from "./type";
 
 const SearchResult: React.FC<SearchResults> = ({ searchResults }) => {
   const navigate = useNavigate();
-  const setSearchedMovies = useContext(UpdateSearchedMoviesContext);
+  const { updateSearchMovies, updateSearchKeyword } = useSearchDetails();
+
   return (
     <>
       <ul className="relative z-10 bg-white border-gray-100 w-full mt-2">
@@ -18,7 +19,8 @@ const SearchResult: React.FC<SearchResults> = ({ searchResults }) => {
               <li
                 key={`search_result_${id}`}
                 onClick={() => {
-                  setSearchedMovies([]);
+                  updateSearchMovies([]);
+                  updateSearchKeyword("");
                   navigate(`/movie/${id}`);
                 }}
                 className="hero cursor-grab bg-base-200 border-b-8 my-4 py-4 px-2"
@@ -37,14 +39,14 @@ const SearchResult: React.FC<SearchResults> = ({ searchResults }) => {
                       {original_title}
                     </span>
                     <p className="py-1">
-                      {overview && overview.length >= 200 ? (
+                      {overview && overview.length >= 250 ? (
                         <button
                           onClick={() => {
                             navigate(`/movie/${id}`);
                           }}
                           className="text-stone-600 text-left"
                         >
-                          {overview?.slice(0, 200)}
+                          {overview?.slice(0, 250)}
                           <span className="text-blue-500"> Read More..</span>
                         </button>
                       ) : (
@@ -64,6 +66,3 @@ const SearchResult: React.FC<SearchResults> = ({ searchResults }) => {
 };
 
 export default SearchResult;
-function SetSearchedMoviesContext(SetSearchedMoviesContext: any) {
-  throw new Error("Function not implemented.");
-}
