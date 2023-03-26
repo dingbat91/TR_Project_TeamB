@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useWatchListContext } from "../../watchList_context";
 
 const Watchlist: React.FC = () => {
   const { watchlistedMovies, handleWatchListClick } = useWatchListContext();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -15,9 +17,12 @@ const Watchlist: React.FC = () => {
               key={`watchlist-${movie.id}`}
             >
               <img
-                className="md:w-56"
+                className="md:w-56 cursor-pointer"
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 alt={`${movie.original_title} movie poster`}
+                onClick={() => {
+                  navigate(`/movie/${movie.id}`);
+                }}
               />
               <span
                 onClick={() => {
