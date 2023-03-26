@@ -1,4 +1,4 @@
-import { APIFetch } from "./fetch/fetch";
+import { APIFetch } from "../fetch/fetch";
 
 export const getMoviesByKeyword = async (searchKeyword: string) => {
   const response = await APIFetch(`/search/multi`, [
