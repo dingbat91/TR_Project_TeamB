@@ -3,6 +3,7 @@ import { MovieData } from "./card/movie_card";
 import Dropdown from "./components/Dropdown/Dropdown";
 import Search from "./components/Search/search";
 import { MovieCardInterface } from "./card/movie_card";
+import { searchKeywordMockResponse } from "./scripts/fetch/testing/mswConfig/mock";
 
 const mockedUsedNavigate = jest.fn();
 jest.mock("react-router-dom", () => ({
@@ -101,7 +102,7 @@ test("renders search component and the input box is existing", () => {
 // //// test movie_card component
 test("renders movie_card component", () => {
   const movieCardProps: MovieCardInterface = {
-    movieid: 550,
+    movieDetails: searchKeywordMockResponse.results[0],
     title: "test",
   };
   render(<MovieData {...movieCardProps} />);
