@@ -1,13 +1,13 @@
 import React, { createContext, useEffect, useState } from "react";
 // import "./Homepage.css";
-import Card from "../../Components/card/card";
-import Search from "../../Components/Search/search";
+import Card from "../../components/card/card";
+import Search from "../../components/Search/search";
 import { getMoviesByKeyword } from "../../scripts/utils";
 import { MovieDetails, PopularMoviesResponse } from "../../types/movie";
 import { Genre } from "../../types/genres";
 import { APIFetch } from "../../scripts/fetch/fetch";
-import { CardRow } from "../../Components/cardRow/CardRow";
-import { movieDetails } from "../../Components/cardRow/CardRow";
+import { CardRow } from "../../components/cardRow/CardRow";
+import { movieDetails } from "../../components/cardRow/CardRow";
 
 
 export const GenreContext = createContext<Genre[]>([]);
