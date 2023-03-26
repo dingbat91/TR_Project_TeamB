@@ -1,43 +1,47 @@
 import React, { useState, useEffect } from "react";
 import { APIFetch } from "../scripts/fetch/fetch";
-import { MovieDetails } from "../types/movie";
+import { Movie, MovieDetails } from "../types/movie";
 import "./movie_card.css";
 import { useNavigate } from "react-router-dom";
 
 export interface MovieCardInterface {
-  movieid: number;
+  // movieid: number;
   title: string;
+  movieDetails: Movie;
 }
 
-export const MovieData: React.FC<MovieCardInterface> = ({ movieid, title }) => {
-  const [moviedata, setMovieData] = useState<MovieDetails>();
-  const movieID = movieid;
+export const MovieData: React.FC<MovieCardInterface> = ({
+  movieDetails: { id, poster_path, backdrop_path, original_title },
+  title,
+}) => {
+  // const [moviedata, setMovieData] = useState<MovieDetails>();
+  // const movieID = movieid;
 
   const Navigate = useNavigate();
 
   const handleClick = () => {
-    Navigate(`/movie/${movieid}`);
+    Navigate(`/movie/${id}`);
   };
 
-  useEffect(() => {
-    const datafetch = async () => {
-      const data = await APIFetch(`/movie/${movieID}`);
-      setMovieData(data);
-    };
-    datafetch();
-  }, []);
+  // useEffect(() => {
+  //   const datafetch = async () => {
+  //     const data = await APIFetch(`/movie/${movieID}`);
+  //     setMovieData(data);
+  //   };
+  //   datafetch();
+  // }, []);
 
-  const posterImage = `https://image.tmdb.org/t/p/original${moviedata?.poster_path}`;
-  const backdropImage = `https://image.tmdb.org/t/p/original${moviedata?.backdrop_path}`;
+  const posterImage = `https://image.tmdb.org/t/p/original${poster_path}`;
+  const backdropImage = `https://image.tmdb.org/t/p/original${backdrop_path}`;
   const imageSource = title === "Netflix" ? posterImage : backdropImage;
   return (
     <>
       <img
         className="card__img"
-        data-id={moviedata?.id}
+        data-id={id}
         onClick={handleClick}
         src={imageSource}
-        alt={moviedata?.original_title}
+        alt={original_title}
       />
     </>
   );
