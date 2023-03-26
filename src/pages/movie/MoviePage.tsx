@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { APIFetch } from "../../scripts/fetch/fetch";
+import { useNavigate } from "react-router-dom";
 import "./MoviePage.css";
 import {
 	Credits,
@@ -10,6 +11,7 @@ import {
 import { useParams } from "react-router-dom";
 
 export const MoviePage: React.FC = () => {
+	const Navigate = useNavigate();
 	const [moviedata, setMovieData] = useState<MovieDetails>();
 	const { movieID } = useParams();
 	const [movieTrailerData, setmovieTrailerData] =
@@ -20,7 +22,6 @@ export const MoviePage: React.FC = () => {
 		const datafetch = async () => {
 			const data = await APIFetch(`/movie/${movieID}`);
 			setMovieData(data);
-
 
 			const trailerdata: movieTrailerDetails = await APIFetch(
 				`/movie/${movieID}/videos`
@@ -92,6 +93,7 @@ export const MoviePage: React.FC = () => {
 										className='moviePage__Cast__card__img'
 										src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
 										alt={cast.name}
+										onClick={() => Navigate(`/actor/${cast.id}`)}
 									/>
 									<p className='moviePage__Cast__card__name'>{cast.name}</p>
 									<p className='moviePage__Cast__card__character'>
