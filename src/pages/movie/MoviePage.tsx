@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { APIFetch } from "../../scripts/fetch/fetch";
+import { useNavigate } from "react-router-dom";
 import "./MoviePage.css";
 import {
   Credits,
-  Movie,
   MovieDetails,
   movieTrailerDetails,
   movieTrailerResult,
@@ -13,6 +13,7 @@ import AddToWatchlist from "../../components/addToWatchlist/addToWatchlist";
 import { useWatchListContext } from "../../watchList_context";
 
 export const MoviePage: React.FC = () => {
+  const Navigate = useNavigate();
   const [moviedata, setMovieData] = useState<MovieDetails>();
   const { movieID } = useParams();
   const [movieTrailerData, setmovieTrailerData] =
@@ -43,22 +44,20 @@ export const MoviePage: React.FC = () => {
 
   return (
     <main className="moviePage">
-      <div>
-        <h1 className="moviePage__title">{moviedata?.original_title}</h1>
-        {moviedata && (
-          <AddToWatchlist
-            onClickHandler={() => handleWatchListClick(moviedata)}
-            isAdded={
-              moviedata
-                ? watchlistedMovies.some((movie) => movie.id === moviedata.id)
-                : false
-            }
-          />
-        )}
-      </div>
+      <h1 className="moviePage__title">{moviedata?.original_title}</h1>
+      {moviedata && (
+        <AddToWatchlist
+          onClickHandler={() => handleWatchListClick(moviedata)}
+          isAdded={
+            moviedata
+              ? watchlistedMovies.some((movie) => movie.id === moviedata.id)
+              : false
+          }
+        />
+      )}
       <article className="moviePage__details">
         <img
-          alt={`Poster ${moviedata?.original_title}`}
+          alt={`${moviedata?.original_title} poster`}
           className="moviePage__details__img"
           src={`https://image.tmdb.org/t/p/original${moviedata?.poster_path}`}
         />
@@ -109,6 +108,7 @@ export const MoviePage: React.FC = () => {
                     className="moviePage__Cast__card__img"
                     src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
                     alt={cast.name}
+                    onClick={() => Navigate(`/actor/${cast.id}`)}
                   />
                   <p className="moviePage__Cast__card__name">{cast.name}</p>
                   <p className="moviePage__Cast__card__character">
