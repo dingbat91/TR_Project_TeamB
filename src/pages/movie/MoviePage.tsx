@@ -27,6 +27,7 @@ export const MoviePage: React.FC = () => {
         <img
           className="moviePage__details__img"
           src={`https://image.tmdb.org/t/p/original${moviedata?.poster_path}`}
+          alt={moviedata?.original_title}
         />
         <div className="moviePage__details__infoBox">
           <p className="infoBox__tagline">{moviedata?.tagline}</p>
