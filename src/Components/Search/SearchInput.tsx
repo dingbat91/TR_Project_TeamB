@@ -2,11 +2,8 @@ import React from "react";
 import { useSearchDetails } from "../../search_context";
 import { SearchInputProps } from "./type";
 
-const SearchInput: React.FC<SearchInputProps> = ({
-  onChangeHandler,
-  value,
-}) => {
-  const { updateSearchKeyword } = useSearchDetails();
+const SearchInput: React.FC<SearchInputProps> = ({ onChangeHandler }) => {
+  const { updateSearchKeyword, searchKeyword } = useSearchDetails();
 
   return (
     <>
@@ -30,7 +27,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
       <input
         className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
         type="text"
-        value={value}
+        value={searchKeyword}
         onChange={({ target }) => {
           updateSearchKeyword(target.value);
           onChangeHandler(target.value);
