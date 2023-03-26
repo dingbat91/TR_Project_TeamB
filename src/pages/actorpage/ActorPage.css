@@ -8,7 +8,7 @@
 	text-align: center;
 	padding-top: 1em;
 	font: bold;
-	font-size: 2.5em;
+	font-size: 4em;
 }
 
 .actor__birthDeath__line {
@@ -48,7 +48,7 @@
 }
 
 .actor__biographyTitle {
-	font-size: 1.5em;
+	font-size: 2.3em;
 	font-weight: bold;
 }
 
@@ -61,6 +61,7 @@
 	padding: 0.2rem;
 	font-size: 1.5rem;
 	text-shadow: 1.2px 1px lightgray;
+	background-color: rgba(88, 88, 88, 0.121);
 }
 
 .popularMovies__list {
