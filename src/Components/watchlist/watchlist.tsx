@@ -24,7 +24,7 @@ const Watchlist: React.FC = () => {
                   navigate(`/movie/${movie.id}`);
                 }}
               />
-              <span
+              <button
                 onClick={() => {
                   handleWatchListClick(movie);
                 }}
@@ -45,7 +45,7 @@ const Watchlist: React.FC = () => {
                   />
                 </svg>
                 <span className="ml-1 text-base">Remove</span>
-              </span>
+              </button>
             </div>
           ))
         ) : (
