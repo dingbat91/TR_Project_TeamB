@@ -4,15 +4,15 @@ import SearchInput from "./SearchInput";
 const onChangeHandler = jest.fn();
 
 test("renders search element correctly with aria label", () => {
-  render(<SearchInput onChangeHandler={onChangeHandler} />);
+  render(<SearchInput value="test" onChangeHandler={onChangeHandler} />);
   const SearchComponentElement = screen.getByLabelText("search");
 
   expect(SearchComponentElement).toBeInTheDocument();
 });
 
-test("renders searched value correctly on onchange handler", () => {
-  render(<SearchInput onChangeHandler={onChangeHandler} />);
-  const SearchComponentElement = screen.getByLabelText("search");
+test("renders searched value correctly on onchange handler", async () => {
+  render(<SearchInput value="movie" onChangeHandler={onChangeHandler} />);
+  const SearchComponentElement = screen.getByRole("textbox");
 
   fireEvent.change(SearchComponentElement, { target: { value: "movie" } });
   expect(SearchComponentElement).toHaveValue("movie");

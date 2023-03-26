@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { MovieDetails } from "../../types/movie";
 
-interface CardProps {
+export interface CardProps {
   movieDetails: MovieDetails;
 }
 
