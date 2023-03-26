@@ -77,6 +77,7 @@ export const ActorPage: React.FC = () => {
 								href={`https://www.facebook.com/${socialMedia?.facebook_id}`}
 								target='_blank'
 								rel='noreferrer'
+								data-testid='facebook'
 							>
 								<FontAwesomeIcon
 									className='socialMedia__icon'
@@ -90,6 +91,7 @@ export const ActorPage: React.FC = () => {
 								href={`https://www.instagram.com/${socialMedia?.instagram_id}`}
 								target='_blank'
 								rel='noreferrer'
+								data-testid='instagram'
 							>
 								<FontAwesomeIcon
 									className='socialMedia__icon'
@@ -103,6 +105,7 @@ export const ActorPage: React.FC = () => {
 								href={`https://www.twitter.com/${socialMedia?.twitter_id}`}
 								target='_blank'
 								rel='noreferrer'
+								data-testid='twitter'
 							>
 								<FontAwesomeIcon
 									className='socialMedia__icon'
