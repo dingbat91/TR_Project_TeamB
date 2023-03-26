@@ -42,7 +42,19 @@ export const MoviePage: React.FC = () => {
   const watchlistUpdateContext = useContext(UpdateWatchlistContext);
 
   const handleWatchListClick = () => {
-    if (moviedata) watchlistUpdateContext([...watchlistContext, moviedata]);
+    if (moviedata) {
+      const isWatchlisted =
+        watchlistContext.length > 0 &&
+        watchlistContext.some((movie) => movie.id === moviedata.id);
+      if (!isWatchlisted) {
+        watchlistUpdateContext([...watchlistContext, moviedata]);
+      } else {
+        const filteredWatchlistMovies = watchlistContext.filter(
+          (movie) => movie.id !== moviedata.id
+        );
+        watchlistUpdateContext(filteredWatchlistMovies);
+      }
+    }
   };
 
   return (
@@ -51,7 +63,11 @@ export const MoviePage: React.FC = () => {
         <h1 className="moviePage__title">{moviedata?.original_title}</h1>
         <AddToWatchlist
           onClickHandler={handleWatchListClick}
-          isAdded={moviedata ? watchlistContext.includes(moviedata) : false}
+          isAdded={
+            moviedata
+              ? watchlistContext.some((movie) => movie.id === moviedata.id)
+              : false
+          }
         />
       </div>
       <article className="moviePage__details">
