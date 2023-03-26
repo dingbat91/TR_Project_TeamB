@@ -6,15 +6,15 @@ import React, {
   Dispatch,
   useCallback,
 } from "react";
-import { getMoviesByKeyword } from "./scripts/utils";
-import { MovieDetails } from "./types/movie";
+import { getMoviesByKeyword } from "./scripts/services/service";
+import { Movie } from "./types/movie";
 
 const SearchContext = React.createContext<{
-  searchedMovies: MovieDetails[];
+  searchedMovies: Movie[];
   getSearchMovies: (value: string) => void;
   searchKeyword: string;
   updateSearchKeyword: Dispatch<SetStateAction<string>>;
-  updateSearchMovies: Dispatch<SetStateAction<MovieDetails[]>>;
+  updateSearchMovies: Dispatch<SetStateAction<Movie[]>>;
 }>({
   searchedMovies: [],
   getSearchMovies: () => null,
@@ -32,7 +32,7 @@ export function SearchDetailsProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [searchedMovies, setSearchedMovies] = useState<MovieDetails[]>([]);
+  const [searchedMovies, setSearchedMovies] = useState<Movie[]>([]);
 
   const [searchKeyword, setSearchKeyword] = useState<string>("");
 

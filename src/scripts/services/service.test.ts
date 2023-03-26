@@ -1,7 +1,7 @@
 import { rest } from "msw";
-import { searchKeywordMockResponse } from "./fetch/testing/mswConfig/mock";
-import { server } from "./fetch/testing/mswConfig/server";
-import { getMoviesByKeyword } from "./utils";
+import { searchKeywordMockResponse } from "../fetch/testing/mswConfig/mock";
+import { server } from "../fetch/testing/mswConfig/server";
+import { getMoviesByKeyword } from "../services/service";
 
 describe("getMoviesByKeyword function should fetch data correctly.", () => {
   test("should return correct data as per keyword passed", async () => {

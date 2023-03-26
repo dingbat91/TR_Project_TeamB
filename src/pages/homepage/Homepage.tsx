@@ -1,18 +1,18 @@
 import React, { createContext, useEffect, useState } from "react";
 // import "./Homepage.css";
 import Card from "../../components/card/card";
-import { getMoviesByKeyword } from "../../scripts/utils";
-import { MovieDetails, PopularMoviesResponse } from "../../types/movie";
+import { getMoviesByKeyword } from "../../scripts/services/service";
+import { Movie, MovieDetails, PopularMoviesResponse } from "../../types/movie";
 import { Genre } from "../../types/genres";
 import { APIFetch } from "../../scripts/fetch/fetch";
 import { CardRow } from "../../components/cardRow/CardRow";
-import { movieDetails } from "../../components/cardRow/CardRow";
+// import { movieDetails } from "../../components/cardRow/CardRow";
 
 export const GenreContext = createContext<Genre[]>([]);
 
 export function Homepage() {
   const [genrelist, setGenreList] = useState<Genre[]>([]);
-  const [popularMovies, setPopularMovies] = useState<movieDetails[]>([]);
+  const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
 
   //Genre useEffect
   useEffect(() => {
@@ -26,11 +26,13 @@ export function Homepage() {
   //Movie list useEffect
   useEffect(() => {
     const fetchRows = async () => {
-      const data = (await APIFetch("/movie/popular")) as PopularMoviesResponse;
-      const popdata: movieDetails[] = data.results.map((movie) => {
-        return { id: movie.id, genre: movie.genre_ids };
-      });
-      setPopularMovies(popdata);
+      const data = await APIFetch("/movie/popular", [
+        { param: "adult", value: false },
+      ]);
+      // const popdata: movieDetails[] = data.results.map((movie) => {
+      //   return { movieData: movie, genre: movie.genre_ids };
+      // });
+      setPopularMovies(data.results);
     };
     fetchRows();
   }, []);
