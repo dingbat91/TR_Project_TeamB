@@ -78,7 +78,10 @@ export const ActorPage: React.FC = () => {
 								target='_blank'
 								rel='noreferrer'
 							>
-								<FontAwesomeIcon icon={faFacebook} />
+								<FontAwesomeIcon
+									className='socialMedia__icon'
+									icon={faFacebook}
+								/>
 							</a>
 						)}
 
@@ -88,7 +91,10 @@ export const ActorPage: React.FC = () => {
 								target='_blank'
 								rel='noreferrer'
 							>
-								<FontAwesomeIcon icon={faInstagram} />
+								<FontAwesomeIcon
+									className='socialMedia__icon'
+									icon={faInstagram}
+								/>
 							</a>
 						)}
 
@@ -98,15 +104,23 @@ export const ActorPage: React.FC = () => {
 								target='_blank'
 								rel='noreferrer'
 							>
-								<FontAwesomeIcon icon={faTwitter} />
+								<FontAwesomeIcon
+									className='socialMedia__icon'
+									icon={faTwitter}
+								/>
 							</a>
 						)}
 					</div>
-					<div className='actor__imgContainer__birth/death'>
-						<p className='actor__birthday'>{actorData?.birthday}</p>
-						{actorData?.deathday && (
-							<p className='actor__deathday'> - {actorData?.deathday}</p>
-						)}
+					<div className='actor__imgContainer__birthDeath'>
+						<p className='actor__birthDeath__line'>
+							{actorData?.birthday?.split("-").reverse().join("/")}
+							{actorData?.deathday && (
+								<span className='actor__deathday'>
+									{<> - </>}
+									{actorData?.deathday?.split("-").reverse().join("/")}
+								</span>
+							)}
+						</p>
 					</div>
 				</div>
 				<div className='bioContainer__details'>
@@ -142,13 +156,15 @@ export const ActorPage: React.FC = () => {
 						<ul className='movieTrailers__list'>
 							{movieTrailerData.slice(0, 5).map((movie) => (
 								<li className='movieTrailers__list__item'>
-									<iframe
-										className='movieTrailers__list__item__iframe'
-										src={`https://www.youtube.com/embed/${movie.key}`}
-										title={movie.name}
-										allowFullScreen
-										loading='lazy'
-									/>
+									{movie?.official && (
+										<iframe
+											className='movieTrailers__list__item__iframe'
+											src={`https://www.youtube.com/embed/${movie.key}`}
+											title={movie.name}
+											allowFullScreen
+											loading='lazy'
+										/>
+									)}
 								</li>
 							))}
 						</ul>

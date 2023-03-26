@@ -1,6 +1,7 @@
 .actor__container {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 }
 
 .actor__Name {
@@ -10,22 +11,56 @@
 	font-size: 2.5em;
 }
 
+.actor__birthDeath__line {
+	font-size: 1.25em;
+}
+
 .actor__bioContainer {
 	display: flex;
 	justify-content: center;
 	gap: 5em;
+	width: 90%;
 }
 
-.actor__biocontainer__imgContainer {
+.actor__bioContainer__imgContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.actor__imgContainer__socialMedia {
+	display: flex;
+	justify-content: center;
+	gap: 1em;
+	padding: 0.4rem;
+}
+
+.socialMedia__icon {
+	width: 2em;
+	height: 2em;
+}
+
+.bioContainer__details {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
 
-.actor__bioContainer__details {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+.actor__biographyTitle {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.actor__placeOfBirth {
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+.actor__biography {
+	padding: 0.2rem;
+	font-size: 1.5rem;
+	text-shadow: 1.2px 1px lightgray;
 }
 
 .popularMovies__list {
@@ -48,25 +83,38 @@
 
 .popularMovies__list__item__img {
 	cursor: pointer;
+	transition: all 0.5s ease-in-out;
+}
+
+.popularMovies__list__item__img:hover {
+	transform: scale(1.05);
+	transition: all 0.5s ease-in-out;
 }
 
 .actor__movieTrailers {
 	display: flex;
 	flex-direction: column;
-	align-self: center;
-	width: fit-content;
-	height: auto;
+	align-items: center;
+	width: 80%;
 }
 
 .movieTrailers__list {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	gap: 2em;
-	padding: 1.5em;
-	align-items: center;
-}
-.movieTrailers__list__item {
-	aspect-ratio: 16/9;
 	width: 100%;
+	gap: 25px;
+}
+
+.movieTrailers__list__item {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.movieTrailers__list__item iframe {
+	aspect-ratio: 16/9;
+	min-width: 40%;
+	max-width: 80%;
+	border: 5px solid white;
+	box-shadow: 3px 2px lightgray;
 }
