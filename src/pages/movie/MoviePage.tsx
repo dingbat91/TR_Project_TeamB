@@ -20,9 +20,11 @@ export const MoviePage: React.FC = () => {
 
 	useEffect(() => {
 		const datafetch = async () => {
+			//fetches movie data
 			const data = await APIFetch(`/movie/${movieID}`);
 			setMovieData(data);
 
+			//fetches Trailer data
 			const trailerdata: movieTrailerDetails = await APIFetch(
 				`/movie/${movieID}/videos`
 			);
@@ -30,6 +32,7 @@ export const MoviePage: React.FC = () => {
 				setmovieTrailerData(trailerdata.results);
 			}
 
+			//fetches credits data
 			const creditsdata: Credits = await APIFetch(`/movie/${movieID}/credits`);
 			if (creditsdata) {
 				setCredits(creditsdata);
@@ -105,6 +108,7 @@ export const MoviePage: React.FC = () => {
 			</article>
 
 			<article className='moviePage__Trailer'>
+				{/*Displays Trailers if there are any*/}
 				{movieTrailerData && movieTrailerData.length >= 1 && (
 					<h1 className='moviePage__Trailer__title'>Trailers</h1>
 				)}
