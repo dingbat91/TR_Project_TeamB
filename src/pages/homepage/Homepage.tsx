@@ -1,6 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
 // import "./Homepage.css";
-import Card from "../../Components/card/card";
 import { getMoviesByKeyword } from "../../scripts/services/service";
 import { Movie, MovieDetails, PopularMoviesResponse } from "../../types/movie";
 import { Genre } from "../../types/genres";
@@ -42,11 +41,6 @@ export function Homepage() {
 
   return (
     <div className="App">
-      {/* <div>
-        {searchedMovies.map((movie: MovieDetails) => (
-          <Card movieDetails={movie} />
-        ))}
-      </div> */}
       <GenreContext.Provider value={genrelist}>
         <div className="card__netflixOriginal">
           <div className="card_title">
