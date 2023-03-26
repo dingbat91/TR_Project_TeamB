@@ -1,4 +1,4 @@
-import { MovieDetails } from "../../types/movie";
+import { Movie, MovieDetails } from "../../types/movie";
 
 export interface SearchInputProps {
   onChangeHandler: (value: string) => void;
@@ -6,7 +6,7 @@ export interface SearchInputProps {
 }
 
 export interface SearchResults {
-  searchResults: MovieDetails[];
+  searchResults: Movie[];
 }
 
 export interface SearchProps {
