@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 // import "./Homepage.css";
 import Card from "../../components/card/card";
-import { getMoviesByKeyword } from "../../scripts/utils";
+import { getMoviesByKeyword } from "../../scripts/services/service";
 import { Movie, MovieDetails, PopularMoviesResponse } from "../../types/movie";
 import { Genre } from "../../types/genres";
 import { APIFetch } from "../../scripts/fetch/fetch";

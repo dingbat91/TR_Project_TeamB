@@ -3,13 +3,14 @@ import { APIFetch } from "../../scripts/fetch/fetch";
 import "./MoviePage.css";
 import {
   Credits,
+  Movie,
   MovieDetails,
   movieTrailerDetails,
   movieTrailerResult,
 } from "../../types/movie";
 import { useParams } from "react-router-dom";
-import AddToWatchlist from "../../components/button/addToWatchlist";
-import { UpdateWatchlistContext, WatchlistContext } from "../../layout/layout";
+import AddToWatchlist from "../../components/addToWatchlist/addToWatchlist";
+import { useWatchListContext } from "../../watchList_context";
 
 export const MoviePage: React.FC = () => {
   const [moviedata, setMovieData] = useState<MovieDetails>();
@@ -38,37 +39,22 @@ export const MoviePage: React.FC = () => {
     datafetch();
   }, [movieID]);
 
-  const watchlistContext = useContext(WatchlistContext);
-  const watchlistUpdateContext = useContext(UpdateWatchlistContext);
-
-  const handleWatchListClick = () => {
-    if (moviedata) {
-      const isWatchlisted =
-        watchlistContext.length > 0 &&
-        watchlistContext.some((movie) => movie.id === moviedata.id);
-      if (!isWatchlisted) {
-        watchlistUpdateContext([...watchlistContext, moviedata]);
-      } else {
-        const filteredWatchlistMovies = watchlistContext.filter(
-          (movie) => movie.id !== moviedata.id
-        );
-        watchlistUpdateContext(filteredWatchlistMovies);
-      }
-    }
-  };
+  const { handleWatchListClick, watchlistedMovies } = useWatchListContext();
 
   return (
     <main className="moviePage">
       <div>
         <h1 className="moviePage__title">{moviedata?.original_title}</h1>
-        <AddToWatchlist
-          onClickHandler={handleWatchListClick}
-          isAdded={
-            moviedata
-              ? watchlistContext.some((movie) => movie.id === moviedata.id)
-              : false
-          }
-        />
+        {moviedata && (
+          <AddToWatchlist
+            onClickHandler={() => handleWatchListClick(moviedata)}
+            isAdded={
+              moviedata
+                ? watchlistedMovies.some((movie) => movie.id === moviedata.id)
+                : false
+            }
+          />
+        )}
       </div>
       <article className="moviePage__details">
         <img
