@@ -61,7 +61,7 @@ describe("Render Tests", () => {
 				expect(screen.getByText("Movie Trailers")).toBeInTheDocument();
 			},
 			//given a little longer due to calling youtube iframe
-			{ timeout: 2500 }
+			{ timeout: 5000 }
 		);
 	});
 });
