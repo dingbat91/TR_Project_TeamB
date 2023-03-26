@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { MovieDetails } from "./types/movie";
 
-const WatchlistContext = React.createContext<{
+export const WatchlistContext = React.createContext<{
   watchlistedMovies: MovieDetails[];
   handleWatchListClick: (value: MovieDetails) => void;
 }>({
