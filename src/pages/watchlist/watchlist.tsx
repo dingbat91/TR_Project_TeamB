@@ -1,7 +1,7 @@
 import React from "react";
 import { MovieDetails } from "../../types/movie";
 import { useWatchListContext } from "../../watchList_context";
-import DisplayMovieCard from "../displayMovieCard/displayMovieCard";
+import DisplayMovieCard from "../../Components/displayMovieCard/displayMovieCard";
 
 const Watchlist: React.FC = () => {
   const { watchlistedMovies, handleWatchListClick } = useWatchListContext();

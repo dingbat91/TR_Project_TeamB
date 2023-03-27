@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { movieID550DetailsMockResponse } from "../../scripts/fetch/testing/mswConfig/mock";
 import { WatchlistContext } from "../../watchList_context";
-import Watchlist from "../watchlist/watchlist";
+import Watchlist from "./watchlist";
 import { MovieDetails } from "../../types/movie";
 
 const mockedUsedNavigate = jest.fn();
