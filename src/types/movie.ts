@@ -96,6 +96,18 @@ export interface PopularMoviesResponse {
   total_pages: number;
   total_results: number;
 }
+export interface NowPlayingMoviesResponse { 
+  page: number;
+  results: Movie[];
+  total_pages: number;
+  total_results: number;
+}
+export interface UpcomingMoviesResponse { 
+  page: number;
+  results: Movie[];
+  total_pages: number;
+  total_results: number;
+}
 
 //Movie Trailers types
 export interface movieTrailerDetails {

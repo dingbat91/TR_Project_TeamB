@@ -3,8 +3,6 @@ import React, { useState, useContext } from "react";
 import { MovieData } from "../../card/movie_card";
 import { GenreContext } from "../../pages/homepage/Homepage";
 import { Movie } from "../../types/movie";
-
-import Dropdown from "../Dropdown/Dropdown";
 import "./CardRow.css";
 
 // export interface movieDetails {
