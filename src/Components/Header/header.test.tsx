@@ -7,13 +7,13 @@ jest.mock("react-router-dom", () => ({
 }));
 test("renders Header component correctly", () => {
   render(<Header />);
-  const headerComponent = screen.getByText("Logo");
+  const headerComponent = screen.getByAltText("Man Eating Popcorn");
   expect(headerComponent).toBeInTheDocument();
 });
 
 test("navigate to home page after clicking on logo", () => {
   render(<Header />);
-  const headerComponent = screen.getByText("Logo");
+  const headerComponent = screen.getByAltText("Man Eating Popcorn");
   fireEvent.click(headerComponent);
   expect(mockedUsedNavigate).toHaveBeenCalledWith("/");
 });
