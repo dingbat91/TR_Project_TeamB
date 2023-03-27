@@ -7,15 +7,14 @@ const Header: React.FC = () => {
   const navigate = useNavigate();
   return (
     <nav className="flex w-screen h-20 mt-4">
-      <div className="flex-1 flex justify-center items-center mr-auto">
-        <img
-          onClick={() => {
-            navigate("/");
-          }}
-          alt="Man Eating Popcorn"
-          src={logo}
-          className="h-20"
-        />
+      <div
+        aria-label="logo"
+        onClick={() => {
+          navigate("/");
+        }}
+        className="flex-1 flex justify-center items-center mr-auto cursor-pointer"
+      >
+        <img alt="Man Eating Popcorn" src={logo} className="h-20" />
         <span className="font-sans font-bold text-xl">Team Popcorn</span>
       </div>
 
