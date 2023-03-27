@@ -1,29 +1,18 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { MovieDetails } from "../../types/movie";
 import { useWatchListContext } from "../../watchList_context";
+import DisplayMovieCard from "../displayMovieCard/displayMovieCard";
 
 const Watchlist: React.FC = () => {
   const { watchlistedMovies, handleWatchListClick } = useWatchListContext();
-  const navigate = useNavigate();
 
   return (
     <>
       <div className="text-center text-2xl pb-2.5">My Watchlist</div>
       <div className="flex flex-wrap justify-center">
         {watchlistedMovies.length > 0 ? (
-          watchlistedMovies.map((movie) => (
-            <div
-              className="flex flex-col items-center basis-1/6 m-1"
-              key={`watchlist-${movie.id}`}
-            >
-              <img
-                className="md:w-56 cursor-pointer"
-                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                alt={`${movie.original_title} movie poster`}
-                onClick={() => {
-                  navigate(`/movie/${movie.id}`);
-                }}
-              />
+          watchlistedMovies.map((movie: MovieDetails) => (
+            <DisplayMovieCard movieDetail={movie}>
               <button
                 onClick={() => {
                   handleWatchListClick(movie);
@@ -46,7 +35,7 @@ const Watchlist: React.FC = () => {
                 </svg>
                 <span className="ml-1 text-base">Remove</span>
               </button>
-            </div>
+            </DisplayMovieCard>
           ))
         ) : (
           <p>No movies added to watchlist</p>
