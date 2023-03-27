@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import AddToWatchlist from "./addToWatchlist";
+import AddToWatchlist from "../addToWatchlist/addToWatchlist";
 const onClickHandler = jest.fn();
 
 test("renders add-to-watchlist component correctly", () => {
