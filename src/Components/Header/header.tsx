@@ -6,7 +6,7 @@ import logo from "../../assets/images/popcorn-logo.png";
 const Header: React.FC = () => {
   const navigate = useNavigate();
   return (
-    <nav className="flex w-screen h-20 my-4">
+    <nav className="flex w-screen h-20 mt-4">
       <div className="flex-1 flex justify-center items-center mr-auto">
         <img
           onClick={() => {

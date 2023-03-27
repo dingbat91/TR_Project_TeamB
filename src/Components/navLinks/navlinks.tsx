@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 const NavLinks: React.FC = () => {
   return (
     <nav className="flex w-full flex-wrap items-center justify-center  py-1  shadow-lg">
-      <ul className="list-style-none justify-center	flex">
-        <li className="p-2 hover:opacity-80 focus:opacity-80">
+      <ul className="list-style-none justify-center	flex gap-6">
+        <li className="hover:opacity-80 focus:opacity-80">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -17,7 +17,7 @@ const NavLinks: React.FC = () => {
             Home
           </NavLink>
         </li>
-        <li className="p-2 hover:opacity-80 focus:opacity-80">
+        <li className="hover:opacity-80 focus:opacity-80">
           <NavLink
             to="/genres"
             className={({ isActive }) =>
@@ -29,7 +29,7 @@ const NavLinks: React.FC = () => {
             Genres
           </NavLink>
         </li>
-        <li className="p-2 hover:opacity-80 focus:opacity-80">
+        <li className="hover:opacity-80 focus:opacity-80">
           <NavLink
             to="/tvshow"
             className={({ isActive }) =>

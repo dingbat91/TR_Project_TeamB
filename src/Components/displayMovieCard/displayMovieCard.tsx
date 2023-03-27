@@ -8,7 +8,7 @@ const DisplayMovieCard: React.FC<DisplayMovieCardProps> = ({
   const navigate = useNavigate();
   return (
     <div
-      className="display-movie-card flex flex-col items-center basis-1/6 m-1"
+      className="display-movie-card flex flex-col items-center basis-1/6 m-3"
       key={`watchlist-${movieDetail.id}`}
     >
       <img

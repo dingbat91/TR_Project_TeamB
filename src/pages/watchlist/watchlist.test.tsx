@@ -13,7 +13,9 @@ jest.mock("react-router-dom", () => ({
 
 test("renders watchlist component correctly", () => {
   render(<Watchlist />);
-  const watchListComponent = screen.getByText("My Watchlist");
+  const watchListComponent = screen.getByText(
+    "WHY NOT WATCH MOVIE FROM YOUR WATCHLIST?"
+  );
   expect(watchListComponent).toBeInTheDocument();
 });
 
