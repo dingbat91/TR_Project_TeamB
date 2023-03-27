@@ -13,7 +13,7 @@ const DisplayMovieCard: React.FC<DisplayMovieCardProps> = ({
     >
       <img
         className="md:w-56 cursor-pointer"
-        src={`https://image.tmdb.org/t/p/original/${movieDetail.poster_path}`}
+        src={`https://image.tmdb.org/t/p/w342/${movieDetail.poster_path}`}
         alt={`${movieDetail.original_title} movie poster`}
         onClick={() => {
           navigate(`/movie/${movieDetail.id}`);

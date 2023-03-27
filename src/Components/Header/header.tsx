@@ -5,7 +5,7 @@ import Search from "../Search/search";
 const Header: React.FC = () => {
   const navigate = useNavigate();
   return (
-    <nav className="flex w-screen h-12 my-4">
+    <nav className="flex w-screen h-12 mt-4 mb-2">
       <div className="flex-1 flex justify-center mr-auto">
         <button
           className="mx-2"
