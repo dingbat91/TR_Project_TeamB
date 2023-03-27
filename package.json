@@ -37,6 +37,22 @@
     "test:coverage": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/react-app-env.d.ts",
+      "<rootDir>/src/index.tsx",
+      "<rootDir>/src/App.tsx",
+      "<rootDir>/src/router/router.tsx",
+      "<rootDir>/src/reportWebVitals.ts",
+      "<rootDir>/src/scripts/fetch/testing/mswConfig/handlers.ts",
+      "<rootDir>/src/types",
+      ".mock.ts"
+    ]
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
