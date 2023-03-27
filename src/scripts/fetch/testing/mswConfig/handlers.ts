@@ -1,6 +1,7 @@
 import { rest } from "msw";
 import {
   movieID420818VideoMockResponse,
+  movieID550CreaditResponse,
   movieID550DetailsMockResponse,
   movieID603692DetailsMockResponse,
   personID119589DetailsMockResponse,
@@ -50,6 +51,27 @@ export const handlers = [
     "https://api.themoviedb.org/3/movie/420818/videos",
     (req, res, ctx) => {
       return res(ctx.status(200), ctx.json(movieID420818VideoMockResponse));
+    }
+  ),
+  rest.get("https://api.themoviedb.org/3/movie/550/videos", (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(movieID420818VideoMockResponse));
+  }),
+  rest.get(
+    "https://api.themoviedb.org/3/movie/603692/videos",
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(movieID420818VideoMockResponse));
+    }
+  ),
+  rest.get(
+    "https://api.themoviedb.org/3/movie/550/credits",
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(movieID550CreaditResponse));
+    }
+  ),
+  rest.get(
+    "https://api.themoviedb.org/3/movie/603692/credits",
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(movieID550CreaditResponse));
     }
   ),
 ];
