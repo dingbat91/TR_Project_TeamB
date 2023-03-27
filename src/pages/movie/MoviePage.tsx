@@ -61,7 +61,7 @@ export const MoviePage: React.FC = () => {
 				<img
 					alt={`${moviedata?.original_title} poster`}
 					className='moviePage__details__img'
-					src={`https://image.tmdb.org/t/p/original${moviedata?.poster_path}`}
+					src={`https://image.tmdb.org/t/p/w500${moviedata?.poster_path}`}
 				/>
 				<article className='moviePage__details__infoBox'>
 					<p className='infoBox__tagline'>{moviedata?.tagline}</p>
@@ -108,7 +108,7 @@ export const MoviePage: React.FC = () => {
 								<article className='moviePage__Cast__card'>
 									<img
 										className='moviePage__Cast__card__img'
-										src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
+										src={`https://image.tmdb.org/t/p/w500${cast.profile_path}`}
 										alt={cast.name}
 										onClick={() => Navigate(`/actor/${cast.id}`)}
 									/>

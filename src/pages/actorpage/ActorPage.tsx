@@ -67,7 +67,7 @@ export const ActorPage: React.FC = () => {
 					{actorData?.profile_path && (
 						<img
 							className='actor__img'
-							src={`https://image.tmdb.org/t/p/original${actorData?.profile_path}`}
+							src={`https://image.tmdb.org/t/p/w500${actorData?.profile_path}`}
 							alt={actorData?.name}
 						/>
 					)}
@@ -143,7 +143,7 @@ export const ActorPage: React.FC = () => {
 							<li className='popularMovies__list__item'>
 								<img
 									className='popularMovies__list__item__img'
-									src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+									src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
 									alt={movie.title}
 									onClick={() => Navigate(`/movie/${movie.id}`)}
 								/>
