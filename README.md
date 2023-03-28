@@ -62,7 +62,7 @@ The header contains a search bar, and a my watchlist button. You can use the sea
 
 ### Genre Page
 
-<img src= src\assets\images\readme\GenrePage.png width=80/>
+<img src= src\assets\images\readme\GenrePage.png width=800/>
 
 **_WORK IN PROGRESS_**
 -- DETAILS AND IMAGE OF GENRE PAGE HERE --
