@@ -1,46 +1,124 @@
-# Getting Started with Create React App
+# Team Popcorn - Movie Information Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Created By
 
-## Available Scripts
+Charles , Jon Damaso, Matthew Hanson, Mrunal Dhangare
 
-In the project directory, you can run:
+## Details
 
-### `npm start`
+This website is a frontend for <https://www.themoviedb.org/>'s API. It allows a user to search for movies and actors and view information about them. It also displays a list of trending, popular, and upcoming movies. You can also place movies into your own custom watchlist.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Parts
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+It is comprised of the following parts
 
-### `npm test`
+### Pages
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Home
+- Actor Details
+- Movie Details
+- Genre list
+- TV Shows
 
-### `npm run build`
+### Components
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+React Components Include:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Watchlist - Manages watchlist
+- cardRow - Dislays a row of Movie Cards
+- Search - Manages search funcitonality.
+- dropdown - Dropdown menu for genre list
+- card - Displays a movie card
+- Header - Displayed header component.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation Instructions
 
-### `npm run eject`
+To run this project locally, you will need to do the following:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Clone the repository via: `https://github.com/dingbat91/TR_Project_TeamB.git`
+2. Install the dependencies via: `npm install`
+3. create a .env file in the root directory which takes two entries
+   - REACT*APP_APIKEY= *"Your api key here!"\_
+   - REACT_APP_BASE_URL= <https://api.themoviedb.org/3>
+4. Run the project via: `npm start`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Instructions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Home Page
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<img src= src\assets\images\readme\Homepage.png width=800/>
 
-## Learn More
+The home page displays a list of trending, popular, and upcoming movies. Any of the posters or splash images for a filk cam be clicked to view more information about the movie.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Header
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="src\assets\images\readme\Header.png" width=800>
+
+The header contains a search bar, and a my watchlist button. You can use the search bar to search for any film and open it by clicking the selection. My Watchlist will bring you to your current watchlist.
+
+#### Search Functionality
+
+-- DETAILS ON SEARCH HERE --
+
+### Genre Page
+
+<img src= src\assets\images\readme\GenrePage.png width=800/>
+
+**_WORK IN PROGRESS_**
+-- DETAILS AND IMAGE OF GENRE PAGE HERE --
+
+The Genre page displays a list of movies based on their Genre. The genres are displayed in a dropdown menu.
+
+The Movies are displayed in a grid of cards which can be clicked to view more information about the movie.
+
+### TV Shows
+
+**_WORK IN PROGRESS_**
+
+<img src="src\assets\images\readme\TVShows.png" width=800 />
+
+The Tv Shows page displays a list of popular TV shows.
+The shows are displayed in a grid of cards which can be clicked to view more information about the show.
+
+### Movie Details
+
+<img src= src\assets\images\readme\MoviePage.png width=800/>
+
+The movie details page gives detailed information on a selected movie. The details given are:
+
+- Title
+- Byline
+- Overview
+- Release Status
+- Genre
+- Budget
+- Revenue
+- Cast
+- Trailers
+
+The images of the cast can be selected to get more details about them, and trailers can also be watched from the page by clicking on them.
+
+### Actor Details
+
+<img src= src\assets\images\readme\ActorPage.png width=800/>
+
+The Actor Details page displays informatin on the selected actor. It displays the following information:
+
+- Name
+- Biography
+- Birth Date
+- Birth Place
+- Death Date (if applicable)
+- Social Media Links (If available)
+- Known For Movies
+- Trailers for Known movies
+
+Movies can be selected by clicking on the posters. and trailers can also be watched from the page by clicking on them.
+
+### Watchlist
+
+<img src="src\assets\images\readme\Watchlist.png" width=800>
+
+The watchlist page displays a list of movies that have been added to the watchlist. Movies can be removed from the watchlist by clicking the remove button.
+
+Movies can also be selected to view more information about them.
