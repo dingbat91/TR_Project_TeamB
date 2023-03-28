@@ -7,7 +7,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onChangeHandler }) => {
 
   return (
     <>
-      <div className="grid place-items-center h-full w-12 text-gray-300">
+      <div className="grid place-items-center  w-12 text-white">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
@@ -25,7 +25,7 @@ const SearchInput: React.FC<SearchInputProps> = ({ onChangeHandler }) => {
       </div>
 
       <input
-        className="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
+        className="peer w-full outline-none font-bold bg-slate-800		 text-sm  pr-2 "
         type="text"
         value={searchKeyword}
         onChange={({ target }) => {

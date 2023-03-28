@@ -34,9 +34,12 @@ export const CardRow: React.FC<CardRowInterface> = ({ movies, title }) => {
       <>
         {movies.map((movie: Movie) => (
           <React.Fragment key={`movie-data-${movie.id}`}>
-            {(movie.genre_ids.includes(parseInt(filter)) || filter === "A") && (
-              <MovieData movieDetails={movie} title={title} />
-            )}
+            {/* added extra check for inappropriate movie poster id: 1087040 */}
+            {movie.id !== 1087040 &&
+              (movie.genre_ids.includes(parseInt(filter)) ||
+                filter === "A") && (
+                <MovieData movieDetails={movie} title={title} />
+              )}
           </React.Fragment>
         ))}
       </>

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { movieID550DetailsMockResponse } from "../../scripts/fetch/testing/mswConfig/mock";
 import { WatchlistContext } from "../../watchList_context";
-import Watchlist from "../watchlist/watchlist";
+import Watchlist from "./watchlist";
 import { MovieDetails } from "../../types/movie";
 
 const mockedUsedNavigate = jest.fn();
@@ -13,7 +13,9 @@ jest.mock("react-router-dom", () => ({
 
 test("renders watchlist component correctly", () => {
   render(<Watchlist />);
-  const watchListComponent = screen.getByText("My Watchlist");
+  const watchListComponent = screen.getByText(
+    "WHY NOT WATCH MOVIE FROM YOUR WATCHLIST?"
+  );
   expect(watchListComponent).toBeInTheDocument();
 });
 
