@@ -26,10 +26,10 @@ React Components Include:
 
 - Watchlist - Manages watchlist
 - cardRow - Dislays a row of Movie Cards
-- Search - manages search funcitonality.
+- Search - Manages search funcitonality.
 - dropdown - Dropdown menu for genre list
 - card - Displays a movie card
-- Header - displayed header component.
+- Header - Displayed header component.
 
 ## Installation Instructions
 
@@ -38,7 +38,7 @@ To run this project locally, you will need to do the following:
 1. Clone the repository via: `https://github.com/dingbat91/TR_Project_TeamB.git`
 2. Install the dependencies via: `npm install`
 3. create a .env file in the root directory which takes two entries
-   - REACT_APP_APIKEY= "Your api key here!"
+   - REACT_APP_APIKEY= _"Your api key here!"_
    - REACT_APP_BASE_URL= <https://api.themoviedb.org/3>
 4. Run the project via: `npm start`
 
