@@ -2,13 +2,23 @@
 
 ## Created By
 
-Charles , Jon Damaso, Matthew Hanson, Mrunal Dhangare
+Charles , Jon Damaso, Matthew Hanson, Mrunal
 
 ## Details
 
 This website is a frontend for <https://www.themoviedb.org/>'s API. It allows a user to search for movies and actors and view information about them. It also displays a list of trending, popular, and upcoming movies. You can also place movies into your own custom watchlist.
 
-## Parts
+## Key Features
+
+- Displays popular, trending, top rated, upcoming movies.
+- Search movies using searchbox.
+- Show movie details such as overview, budget, cast, trailers.
+- Display actor details like biography, popular movies, trailers
+- Filter movies by Category/Genres
+- Display popular TV shows with rating and year
+- Ability add/remove movies in watchlist and browse it
+
+## Key Parts
 
 It is comprised of the following parts
 
@@ -19,6 +29,7 @@ It is comprised of the following parts
 - Movie Details
 - Genre list
 - TV Shows
+- Watchlist
 
 ### Components
 
@@ -58,14 +69,13 @@ The header contains a search bar, and a my watchlist button. You can use the sea
 
 #### Search Functionality
 
--- DETAILS ON SEARCH HERE --
+<img src="src\assets\images\readme\Search.png" width=800>
+
+The search bar can be used to find movies by using a keyword related to movie title or details which will then display list of related movies. After clicking on a specific movie, it will redirect to the details of that particular movie.
 
 ### Genre Page
 
 <img src= src\assets\images\readme\GenrePage.png width=800/>
-
-**_WORK IN PROGRESS_**
--- DETAILS AND IMAGE OF GENRE PAGE HERE --
 
 The Genre page displays a list of movies based on their Genre. The genres are displayed in a dropdown menu.
 
@@ -73,12 +83,10 @@ The Movies are displayed in a grid of cards which can be clicked to view more in
 
 ### TV Shows
 
-**_WORK IN PROGRESS_**
-
 <img src="src\assets\images\readme\TVShows.png" width=800 />
 
 The Tv Shows page displays a list of popular TV shows.
-The shows are displayed in a grid of cards which can be clicked to view more information about the show.
+The shows are displayed in a grid of cards.
 
 ### Movie Details
 
@@ -122,3 +130,22 @@ Movies can be selected by clicking on the posters. and trailers can also be watc
 The watchlist page displays a list of movies that have been added to the watchlist. Movies can be removed from the watchlist by clicking the remove button.
 
 Movies can also be selected to view more information about them.
+
+## Live URL:
+
+https://team-popcorn-movie-database.vercel.app/
+
+## Roadmap
+
+- [x] Show popular/trending/top rated/upcoming movies
+- [x] Implement Search Movies functionality
+- [x] Display movie details along with cast,videos
+- [x] Display actor details with biography and popular movies
+- [x] Filter movies by genres
+- [x] Display popular TV shows with rating and year
+- [x] Ability add/remove movies in watchlist and browse it
+- [ ] Display TV show details
+- [ ] Pagination/load more content functionality (lazy loading)
+- [ ] Responsiveness
+- [ ] Email/SMS for latest releases
+- [ ] Open for Extensions
