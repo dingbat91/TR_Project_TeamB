@@ -12,7 +12,11 @@ module.exports = {
       },
       boxShadow: {
         '3xl': '3px 3px 7px 2px #F7F7F7',
+      },
+      minHeight: {
+        '20': '80px',
       }
+
     },
   },
   plugins: [],

@@ -25,11 +25,12 @@ const TVShows: React.FC = () => {
               <React.Fragment key={`genre-movie-${movie.id}`}>
                 {movie.poster_path && (
                   <DisplayMovieCard isTVShow={true} movieDetail={movie}>
-                    <div className="flex flex-col justify-center w-full self-start items-center bg-slate-900 mt-1.5">
+                    <div className="flex flex-col justify-center md:w-56 self-center items-center bg-neutral-800	 mt-1.5">
                       <h4>{movie.original_name}</h4>
                       <div>
                         {movie.first_air_date && (
                           <span className="mr-2">
+                            Year:{" "}
                             {convertReleaseDateToYear(movie.first_air_date)}
                           </span>
                         )}

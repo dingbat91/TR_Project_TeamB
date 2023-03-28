@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { SearchDetailsProvider } from "../../search_context";
 import Search from "../Search/search";
 
-import logo from "../../assets/images/popcorn-logo.png";
+import logo from "../../assets/images/team-popcorn-logo.png";
 const Header: React.FC = () => {
   const navigate = useNavigate();
   return (
