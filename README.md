@@ -73,6 +73,8 @@ The header contains a search bar, and a my watchlist button. You can use the sea
 
 The search bar can be used to find movies by using a keyword related to movie title or details which will then display list of related movies. After clicking on a specific movie, it will redirect to the details of that particular movie.
 
+For fetching data from the API, we are using debouncing concept to improve performance.
+
 ### Genre Page
 
 <img src= src\assets\images\readme\GenrePage.png width=800/>
