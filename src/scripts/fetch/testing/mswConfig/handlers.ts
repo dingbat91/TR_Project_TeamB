@@ -9,6 +9,13 @@ import {
   personID119589SocialMediaMockResponse,
   personID287DetailsMockResponse,
   searchByPersonMockResponse,
+  genreMovieListResponse,
+  moviePopularResponse,
+  discoverMovieResponse,
+  actor287ExternalIDResponse,
+  movieUpcomingResponse,
+  movieNowPlayingResponse,
+  movieTopRatedResponse
 } from "./mock";
 
 //base movie URL to C&P for new handlers: https://api.themoviedb.org/3/
@@ -43,9 +50,9 @@ export const handlers = [
   rest.get("https://api.themoviedb.org/3/person/119589", (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(personID119589DetailsMockResponse));
   }),
-  rest.get("https://api.themoviedb.org/3/discover/movie", (req, res, ctx) => {
-    return res(ctx.status(200), ctx.json(personID119589PopMoviesMockResponse));
-  }),
+  // rest.get("https://api.themoviedb.org/3/discover/movie", (req, res, ctx) => {
+  //   return res(ctx.status(200), ctx.json(personID119589PopMoviesMockResponse));
+  // }),
 
   rest.get(
     "https://api.themoviedb.org/3/movie/420818/videos",
@@ -74,4 +81,47 @@ export const handlers = [
       return res(ctx.status(200), ctx.json(movieID550CreaditResponse));
     }
   ),
+  rest.get(
+    "https://api.themoviedb.org/3/genre/movie/list",
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(genreMovieListResponse));
+    }
+  ),
+  rest.get(
+    "https://api.themoviedb.org/3/movie/popular",
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(moviePopularResponse));
+    }
+  ),
+  rest.get(
+    "https://api.themoviedb.org/3/discover/movie",
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(discoverMovieResponse));
+    }
+  ),
+  rest.get(
+    "https://api.themoviedb.org/3/person/287/external_ids",
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(actor287ExternalIDResponse));
+    }
+  ),
+  rest.get(
+    "https://api.themoviedb.org/3/movie/upcoming",
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(movieUpcomingResponse));
+    }
+  ),
+  rest.get(
+    "https://api.themoviedb.org/3/movie/now_playing",
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(movieNowPlayingResponse));
+    }
+  ),
+  rest.get(
+    "https://api.themoviedb.org/3/movie/top_rated",
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(movieTopRatedResponse));
+    }
+  ),
 ];
+

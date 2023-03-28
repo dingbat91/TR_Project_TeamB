@@ -3,20 +3,25 @@ import { DisplayMovieCardProps } from "./type";
 
 const DisplayMovieCard: React.FC<DisplayMovieCardProps> = ({
   movieDetail,
+  isTVShow = false,
   children,
 }) => {
   const navigate = useNavigate();
   return (
     <div
-      className="display-movie-card flex flex-col items-center basis-1/6 m-1"
+      className="display-movie-card flex flex-col items-center basis-1/6 m-3"
       key={`watchlist-${movieDetail.id}`}
     >
       <img
-        className="md:w-56 cursor-pointer"
-        src={`https://image.tmdb.org/t/p/original/${movieDetail.poster_path}`}
+        className={`md:w-56  ${
+          !isTVShow ? "cursor-pointer" : ""
+        } shadow hover:shadow-3xl max-h-64`}
+        src={`https://image.tmdb.org/t/p/w342${movieDetail.poster_path}`}
         alt={`${movieDetail.original_title} movie poster`}
         onClick={() => {
-          navigate(`/movie/${movieDetail.id}`);
+          if (!isTVShow) {
+            navigate(`/movie/${movieDetail.id}`);
+          }
         }}
       />
       {children && children}
