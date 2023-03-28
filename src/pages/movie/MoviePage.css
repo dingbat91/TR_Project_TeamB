@@ -1,131 +1,99 @@
-.moviePage {
+* {
+	margin: 0;
+	box-sizing: 0;
+}
+
+.moviePage{
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+}
+/* .moviePage, .movie__top-container, .movie__poster, .movie__trailer-list, .movie__trailer,
+.moviePage__Trailer__video, 
+.moviePage__Trailer, .content_container, 
+.content__left, .content__right, .moviePage__Cast__card {
+	border: 1px solid red;
+} */
+
+.movie__top-container {
+	display: flex;
 	align-items: center;
-	padding: 0px;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	flex-direction: row;
+	/* object-fit: contain; */
+}
+
+.movie__poster {
+	align-items: center;
+}
+.movie__trailer {
+	display: flex;
+	justify-content: center;
+	object-fit: contain;
+}
+aside{
+	display: flex;
+}
+.container__iframe{
+	display: flex;
 	gap: 10px;
 }
-
-.moviePage > * {
-}
-
-.moviePage__details {
-	padding: 10px;
-	display: flex;
-	gap: 10px;
-	align-content: center;
-	justify-content: space-evenly;
-}
-
-.moviePage__details__infoBox h2 {
-	font-size: 1.1em;
-	font-weight: bold;
-}
-
-.moviePage__title {
-	font-size: 3em;
-	font-weight: bold;
-}
-
-.moviePage__details__img {
-	max-height: 30em;
-	align-self: center;
-}
-
-.moviePage__details__infoBox {
-	max-width: fit-content;
-	font-size: 1.4em;
-}
-
-.infoBox__tagline {
-	padding: 1em;
-	font-size: 1.2em;
-	background-color: rgba(30, 30, 30, 0.25);
-	text-shadow: 1.8px 1px darkgray;
-	text-align: center;
-	font-style: italic;
-}
-
-.infoBox__detailsTitle {
-	text-decoration: underline;
-	padding: 10px;
-}
-
-.infoBox__detailsBox {
-	display: flex;
-	justify-content: space-evenly;
-	padding: 1em 1em;
-}
-
-.infoBox__detailsBox h3 {
-	font-size: 1.5em;
-	font-weight: bold;
-}
-
-.infoBox__detailsBox p {
-	font-size: 1.2em;
-	text-indent: 1.3em;
-}
-
-.moviePage__Cast {
-	display: flex;
-	gap: 20px;
-	padding: 10px;
-	justify-content: space-between;
-}
-
-.moviePage__Cast__title {
-	font-size: 2em;
-	font-weight: bold;
-}
-
-.moviePage__Cast__card {
-	display: flex;
-	flex-direction: column;
-}
-
-.moviePage__Cast__card__img {
+.movie__poster img {
 	height: 250px;
 	width: auto;
 	align-self: center;
-	transition: all 0.5s ease-in-out;
+}
+.movie__trailer iframe {
+	width: auto;
+	justify-content: center;
+	object-fit: contain;
 }
 
-.moviePage__Cast__card__img:hover {
+
+.content_container, .content__container-cast {
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+}
+.content__left{
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+}
+.container__details-genre {
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+}
+ .left__details-content  {
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+	justify-content: space-evenly;
+}
+.content__right {
+	display: flex;
+	flex-direction: column;
+	margin: 10px;
+}
+.detailsBox__genre, h5 {
+	padding-left: 5px;
+}
+
+.avatar__container{
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	align-items: center;
+}
+.avatar_image {
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+}
+.avatar_image:hover {
 	cursor: pointer;
 	transform: scale(1.1);
 	transition: transform 0.5s ease-in-out;
 }
 
-.moviePage__Cast__card__name {
-	text-align: center;
-	font-size: 1.2em;
-}
-
-.moviePage__Cast__card__character {
-	text-align: center;
-	font-size: 1.15em;
-	font-style: italic;
-}
-
-.moviePage__Trailer {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	align-items: center;
-	gap: 10px;
-}
-
-.moviePage__Trailer__video {
-	aspect-ratio: 16 / 9;
-	width: 40%;
-	display: flex;
-	flex-direction: column;
-	border: 1.5px rgba(255, 255, 255, 0.6) solid;
-}
-
-.movieTrailers__title {
-	font-size: 1.8em;
-	font-weight: bold;
-	padding-bottom: 0.5em;
-}

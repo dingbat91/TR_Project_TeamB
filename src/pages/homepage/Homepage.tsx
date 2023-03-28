@@ -13,6 +13,8 @@ import { Genre } from "../../types/genres";
 import { APIFetch } from "../../scripts/fetch/fetch";
 import { CardRow } from "../../Components/cardRow/CardRow";
 import { Movie } from "../../types/movie";
+import { Banner } from "../banner/banner";
+import { MovieData } from "../../card/movie_card";
 
 export interface movieDetails {
 	  movieData: Movie[];
@@ -27,6 +29,7 @@ export function Homepage() {
 	const [topratedMovies, setTopRatedMovies] = useState<Movie[]>([]);
 	const [nowplayingdMovies, setNowPlayingMovies] = useState<Movie[]>([]);
 	const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([]);
+	const movieData = MovieData;
 
   //Genre useEffect
   useEffect(() => {
@@ -41,13 +44,6 @@ export function Homepage() {
 	//Movie list useEffect
 	useEffect(() => {
 		const fetchRows = async () => {
-			// const data = await APIFetch("/movie/popular", [
-			// 	{ param: "adult", value: false },
-			// ]);
-			// // const popdata: movieDetails[] = data.results.map((movie) => {
-			// //   return { movieData: movie, genre: movie.genre_ids };
-			// // });
-			// setPopularMovies(data.results);
 			
 			const dataupcoming = (await APIFetch("/movie/upcoming")) as UpcomingMoviesResponse;
 			const upcomingdata:Movie[] = dataupcoming.results
@@ -69,19 +65,14 @@ export function Homepage() {
 	}, []);
 
 
-  //   const [searchedMovies, setSearchedMovies] = useState<MovieDetails[]>([]);
 
 	return (
 		<div className='App'>
-			{/* <div>
-        {searchedMovies.map((movie: MovieDetails) => (
-          <Card movieDetails={movie} />
-        ))}
-      </div> */}
+
 			<GenreContext.Provider value={genrelist}>
 				<div className='card__netflixOriginal'>
-					<div className='card_title'>
-						<h2>Netflix Original</h2>
+					<div className='movies__header'>
+						<h1><strong>PopCorn Original</strong></h1>
 					</div>
 					<div className='original__movies'>
 						<CardRow title='Netflix' movies={popularMovies} />
@@ -89,7 +80,7 @@ export function Homepage() {
 				</div>
 				<div className='card__movies'>
 					<div className='movies__header'>
-						<h2>Now Playing</h2>
+						<h1><strong>Now Playing</strong></h1>
 					</div>
 					<div className='movies__container'>
 						<CardRow title='Trending' movies={nowplayingdMovies} />
@@ -97,7 +88,7 @@ export function Homepage() {
 				</div>
 				<div className='card__movies'>
 					<div className='movies__header'>
-						<h2>Top Rated</h2>
+						<h1><strong>Top Rated</strong></h1>
 					</div>
 					<div className='movies__container'>
 						<CardRow title='top rated' movies={topratedMovies} />
@@ -105,7 +96,7 @@ export function Homepage() {
 				</div>
 				<div className='card__movies'>
 					<div className='movies__header'>
-						<h2>Upcoming Movies</h2>
+						<h1><strong>Upcoming Movies</strong></h1>
 					</div>
 					<div className='movies__container'>
 						<CardRow title='top rated' movies={upcomingMovies} />

@@ -45,98 +45,119 @@ export const MoviePage: React.FC = () => {
 
 	const { handleWatchListClick, watchlistedMovies } = useWatchListContext();
 	return (
+
 		<main className='moviePage'>
-			<h1 className='moviePage__title'>{moviedata?.original_title}</h1>
-			{moviedata && (
-				<AddToWatchlist
-					onClickHandler={() => handleWatchListClick(moviedata)}
-					isAdded={
-						moviedata
-							? watchlistedMovies.some((movie) => movie.id === moviedata.id)
-							: false
-					}
-				/>
-			)}
-			<article className='moviePage__details'>
-				<img
-					alt={`${moviedata?.original_title} poster`}
-					className='moviePage__details__img'
-					src={`https://image.tmdb.org/t/p/original${moviedata?.poster_path}`}
-				/>
-				<article className='moviePage__details__infoBox'>
-					<p className='infoBox__tagline'>{moviedata?.tagline}</p>
-					<h2 className='infoBox__overviewTitle'>Overview:</h2>
-					<p className='infoBox__Overview'>{moviedata?.overview}</p>
-					<h2 className='infoBox__detailsTitle'>Details</h2>
-					<article className='infoBox__detailsBox'>
-						<div className='detailsBox__Col1'>
-							<h3 className='detailsBox__releaseStatus__title'>Status</h3>
-							<p className='detailsBox__releaseStatus'>{moviedata?.status}</p>
-							<h3 className='detailsBox__genre__Title'>Genre</h3>
+			<div className="container__main-left">
+				<div className="movie__top-container">
+					<div className="movie__poster">
+						{moviedata && (
+							<AddToWatchlist
+								onClickHandler={() => handleWatchListClick(moviedata)}
+								isAdded={
+									moviedata
+										? watchlistedMovies.some((movie) => movie.id === moviedata.id)
+										: false
+								}
+							/>
+						)}
+						<img
+							alt={`${moviedata?.original_title} poster`}
+							className='moviePage__details__img'
+							src={`https://image.tmdb.org/t/p/original${moviedata?.poster_path}`}
+						/>
+					</div>
+					<div className="movie__trailer">
+						{movieTrailerData && movieTrailerData[0] && (
+							<iframe
+
+								id="moviePage_trailer"
+								src={`https://www.youtube.com/embed/${movieTrailerData[0].key}`}
+								data-allow='accelerometer; autoPlay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+								allowFullScreen
+								title={movieTrailerData[0].name}
+								loading='lazy'
+							></iframe>
+						)}
+					</div>
+				</div>
+
+				<div className="content_container-details">
+					<div className="content__left">
+						<div className="container__title">
+							<h1 className="movie__title"><strong>{moviedata?.original_title}</strong></h1>
+							<h3 className='infoBox__tagline'><em>{moviedata?.tagline}</em></h3>
+						</div>
+						<div className="container__details-overview">
+							<p>{moviedata?.overview}</p>
+						</div>
+						<div className="container__details-genre">
+							<h5 className='detailsBox__genre__Title'>Genre: </h5>
 							<p className='detailsBox__genre'>
 								{moviedata?.genres.map((genre) => genre.name).join(", ")}
 							</p>
+							<h5 className='detailsBox__releaseStatus__title'>Status: </h5>
+							<p className='detailsBox__releaseStatus'>{moviedata?.status}</p>
 						</div>
-						<div className='detailsBox__Col2'>
-							<h3 className='detailsBox__budget__title'>Budget</h3>
-							<p className='detailsBox__budget'>
-								{moviedata?.budget.toLocaleString("en-US", {
-									style: "currency",
-									currency: "USD",
-								})}
-							</p>
-							<h3 className='detailsBox__revenue__title'>Revenue</h3>
-							<p className='detailsBox__revenue'>
-								{moviedata?.revenue?.toLocaleString("en-US", {
-									style: "currency",
-									currency: "usd",
-								})}
-							</p>
-						</div>
-					</article>
-				</article>
-			</article>
-			<h1 className='moviePage__Cast__title'>Top Cast</h1>
-			<article className='moviePage__Cast'>
-				{/*If credits is defined: Create a card for first ten members*/}
-				{!credits && <p>Loading...</p>}
-				{credits &&
-					credits.cast &&
-					credits.cast.slice(0, 10).map(
-						(cast) =>
-							cast.profile_path && (
-								<article className='moviePage__Cast__card'>
-									<img
-										className='moviePage__Cast__card__img'
-										src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
-										alt={cast.name}
-										onClick={() => Navigate(`/actor/${cast.id}`)}
-									/>
-									<p className='moviePage__Cast__card__name'>{cast.name}</p>
-									<p className='moviePage__Cast__card__character'>
-										{`"${cast.character}"`}
-									</p>
-								</article>
-							)
-					)}
-			</article>
+					</div>
+				</div>
+				<div className="content__container-cast">
+					<div className="content__right">
+							<div className="right__details-title">
+								<h3 className='detailsBox__cast__Title'>Cast & Crew</h3>
+							</div>
+							<div className="left__details-content">
+							{!credits && <p>Loading...</p>}
+								{credits &&
+									credits.cast &&
+									credits.cast.slice(0, 10).map(
+										(cast) =>
+											cast.profile_path && (
+												<>
+													<div className="avatar__container">
+														<img
+															className='avatar_image'
+															src={`https://image.tmdb.org/t/p/original${cast.profile_path}`}
+															alt={cast.name}
+															onClick={() => Navigate(`/actor/${cast.id}`)}
+														/>
+													
+														<strong><h5 className='moviePage__Cast__card__name'>{cast.name}</h5></strong>
+														<em><p className='moviePage__Cast__card__character'>
+															{`"${cast.character}"`}
+														</p></em>
+													</div>
+												</>
+											)
+									)}	
+							</div>																																		
+					</div>
+				</div>
+			</div>
 
-			<article className='moviePage__Trailer'>
-				{/*Displays Trailers if there are any*/}
-				{movieTrailerData && movieTrailerData.length >= 1 && (
-					<h1 className='moviePage__Trailer__title'>Trailers</h1>
-				)}
-				{movieTrailerData?.slice(0, 5).map((trailer) => (
-					<iframe
-						className='moviePage__Trailer__video'
-						src={`https://www.youtube.com/embed/${trailer.key}`}
-						allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-						allowFullScreen
-						title={trailer.name}
-						loading='lazy'
-					></iframe>
-				))}
-			</article>
+			<aside>
+				<div className="movie__trailers-list">
+
+					{/*Displays Trailers if there are any*/}
+					{movieTrailerData && movieTrailerData.length >= 1 && (
+						<h1 className='moviePage__Trailer__title'>Trailers</h1>
+					)}
+					{movieTrailerData?.slice(0, 5).map((trailer) => (
+						<div className="container__iframe">
+						<iframe
+							className='moviePage__Trailer__video'
+							src={`https://www.youtube.com/embed/${trailer.key}`}
+							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+							allowFullScreen
+							title={trailer.name}
+							loading='lazy'
+						></iframe>
+						</div>
+					))}
+
+				</div>
+			</aside>
 		</main>
+
 	);
+
 };

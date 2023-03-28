@@ -1,3 +1,8 @@
+* {
+  font-family: 'Blinker', sans-serif;
+  margin: 0;
+  
+}
 .original__movies {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -32,8 +37,8 @@
   .original__movies > .card__img:hover,
   .movies__container > .card__img:hover {
     transform: scale(1.1);
-    -webkit-box-shadow: 5px 5px 15px 5px #F7F7F7; 
-    box-shadow: 5px 5px 15px 5px #F7F7F7;
+    -webkit-box-shadow: -1px 3px 10px 1px rgba(124,124,124,0.84); 
+    box-shadow: -1px 3px 10px 1px rgba(124,124,124,0.84);
   }
   
   .movies__container > .card__img {

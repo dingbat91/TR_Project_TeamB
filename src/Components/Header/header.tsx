@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { SearchDetailsProvider } from "../../search_context";
 import Search from "../Search/search";
+import logo from "../../assets/images/team-popcorn-logo.png";
 
-import logo from "../../assets/images/popcorn-logo.png";
 const Header: React.FC = () => {
   const navigate = useNavigate();
   return (
@@ -16,7 +16,6 @@ const Header: React.FC = () => {
           src={logo}
           className="h-20"
         />
-        <span className="font-sans font-bold text-xl">Team Popcorn</span>
       </div>
 
       <div className="flex-1 flex justify-center items-center">
@@ -36,6 +35,7 @@ const Header: React.FC = () => {
         </button>
       </div>
     </nav>
+    
   );
 };
 
