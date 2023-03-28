@@ -11,8 +11,10 @@ const Watchlist: React.FC = () => {
   const { watchlistedMovies, handleWatchListClick } = useWatchListContext();
 
   return (
-    <div className="m-8">
-      <div className="pb-2.5">WHY NOT WATCH MOVIE FROM YOUR WATCHLIST?</div>
+    <div className="mt-12">
+      <div className="pb-2.5 flex flex-wrap justify-center text-2xl">
+        WHY NOT WATCH MOVIE FROM YOUR WATCHLIST?
+      </div>
       <div className="flex flex-wrap justify-center">
         {watchlistedMovies.length > 0 ? (
           watchlistedMovies.map((movie: MovieDetails) => (

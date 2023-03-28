@@ -33,7 +33,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --silent",
     "test:coverage": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject"
   },
@@ -50,6 +50,7 @@
       "<rootDir>/src/reportWebVitals.ts",
       "<rootDir>/src/scripts/fetch/testing/mswConfig/handlers.ts",
       "<rootDir>/src/types",
+      "<rootDir>/src/layout/layout.tsx",
       ".mock.ts"
     ]
   },

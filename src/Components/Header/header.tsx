@@ -15,16 +15,15 @@ const Header: React.FC = () => {
         className="flex-1 flex justify-center items-center mr-auto cursor-pointer"
       >
         <img alt="Man Eating Popcorn" src={logo} className="h-20" />
-        <span className="font-sans font-bold text-xl">Team Popcorn</span>
       </div>
 
-      <div className="flex-1 flex justify-center items-center">
+      <div className="flex-1 flex justify-center">
         <SearchDetailsProvider>
           <Search />
         </SearchDetailsProvider>
       </div>
 
-      <div className="flex-1 flex justify-center ml-auto">
+      <div className="flex-1 flex justify-center ml-auto text-lg">
         <button
           onClick={() => {
             navigate("/watchlist");

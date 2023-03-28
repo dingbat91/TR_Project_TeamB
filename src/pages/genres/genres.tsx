@@ -31,9 +31,9 @@ const Genres: React.FC = () => {
   }, [selectedGenre]);
 
   return (
-    <div>
+    <div className="mt-12">
       <div className="text-center text-2xl pb-2.5">Find Movies by Genres</div>
-      <div className="text-black">
+      <div className="text-black text-center my-4">
         <Dropdown
           options={genres}
           name="genre-dropdown"
