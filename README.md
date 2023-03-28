@@ -46,7 +46,7 @@ To run this project locally, you will need to do the following:
 
 ### Home Page
 
---INSERT HOME PAGE IMAGE HERE--
+<img src= src\assets\images\readme\Homepage.png width=800/>
 
 The home page displays a list of trending, popular, and upcoming movies. Any of the posters or splash images for a filk cam be clicked to view more information about the movie.
 
@@ -82,7 +82,7 @@ The shows are displayed in a grid of cards which can be clicked to view more inf
 
 ### Movie Details
 
---INSERT MOVIE DETAILS IMAGE HERE--
+<img src= src\assets\images\readme\MoviePage.png width=800/>
 
 The movie details page gives detailed information on a selected movie. The details given are:
 
@@ -100,7 +100,7 @@ The images of the cast can be selected to get more details about them, and trail
 
 ### Actor Details
 
---INSERT ACTOR DETAILS IMAGE HERE--
+<img src= src\assets\images\readme\ActorPage.png width=800/>
 
 The Actor Details page displays informatin on the selected actor. It displays the following information:
 
