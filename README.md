@@ -1,14 +1,14 @@
-# Team Popcorn - Movie Information Frontend.
+# Team Popcorn - Movie Information Frontend
 
-## Created By:
+## Created By
 
-Charles Matthew Hanson, Jon Damaso, Mrunal Dhangare,
+Charles , Jon Damaso, Matthew Hanson, Mrunal Dhangare
 
 ## Details
 
 This website is a frontend for <https://www.themoviedb.org/>'s API. It allows a user to search for movies and actors and view information about them. It also displays a list of trending, popular, and upcoming movies. You can also place movies into your own custom watchlist.
 
-## Components
+## Parts
 
 It is comprised of the following parts
 
@@ -39,7 +39,7 @@ To run this project locally, you will need to do the following:
 2. Install the dependencies via: `npm install`
 3. create a .env file in the root directory which takes two entries
    - REACT_APP_APIKEY= "Your api key here!"
-   - REACT_APP_BASE_URL= https://api.themoviedb.org/3
+   - REACT_APP_BASE_URL= <https://api.themoviedb.org/3>
 4. Run the project via: `npm start`
 
 ## Instructions
@@ -62,11 +62,20 @@ The header contains a search bar, and a my watchlist button. You can use the sea
 
 ### Genre Page
 
+**_WORK IN PROGRESS_**
 -- DETAILS AND IMAGE OF GENRE PAGE HERE --
+
+The Genre page displays a list of movies based on their Genre. The genres are displayed in a dropdown menu.
+
+The Movies are displayed in a grid of cards which can be clicked to view more information about the movie.
 
 ### TV Shows
 
+**_WORK IN PROGRESS_**
 -- DETAILS AND IMAGE OF TV SHOWS PAGE HERE --
+
+The Tv Shows page displays a list of popular TV shows.
+The shows are displayed in a grid of cards which can be clicked to view more information about the show.
 
 ### Movie Details
 
