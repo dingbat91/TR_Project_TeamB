@@ -21,8 +21,8 @@ const Watchlist: React.FC = () => {
             <React.Fragment key={`watch-list${movie.id}`}>
               <DisplayMovieCard movieDetail={movie}>
                 <>
-                  <div className="">
-                    <h4>{movie.original_title}</h4>
+                  <div className="flex min-h-20	flex-col justify-center md:w-56 self-center items-center bg-neutral-800 p-1	 mt-1.5">
+                    <h4 className="text-center">{movie.original_title}</h4>
                     <div>
                       {movie.release_date && (
                         <span className="mr-2">
