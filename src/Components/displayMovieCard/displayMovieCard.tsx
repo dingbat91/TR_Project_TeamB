@@ -15,8 +15,8 @@ const DisplayMovieCard: React.FC<DisplayMovieCardProps> = ({
       <img
         className={`md:w-56  ${
           !isTVShow ? "cursor-pointer" : ""
-        } shadow hover:shadow-3xl max-h-64`}
-        src={`https://image.tmdb.org/t/p/w342${movieDetail.poster_path}`}
+        } shadow hover:shadow-3xl `} //max-h-64
+        src={`https://image.tmdb.org/t/p/w440_and_h660_face${movieDetail.poster_path}`}
         alt={`${movieDetail.original_title} movie poster`}
         onClick={() => {
           if (!isTVShow) {

@@ -27,15 +27,15 @@ const SearchResult: React.FC<SearchResults> = ({ searchResults }) => {
                   className="hero hover:bg-slate-900 cursor-grab bg-base-200 border-b-2 py-5 px-2"
                 >
                   <div className="hero-content flex w-full">
-                    <div className="fit-content w-1/5">
+                    <div className="fit-content w-2/5">
                       <img
                         alt={`movie-${original_title}`}
-                        src={`https://image.tmdb.org/t/p/w92/${poster_path}`}
+                        src={`https://image.tmdb.org/t/p/w440_and_h660_face${poster_path}`}
                         className="rounded-lg shadow-2xl m-auto"
                       />
                     </div>
 
-                    <div className="w-4/5	 pl-3 text-left">
+                    <div className="w-3/5	 pl-3 text-left">
                       <span className="font-extrabold text-white">
                         {original_title}
                       </span>
