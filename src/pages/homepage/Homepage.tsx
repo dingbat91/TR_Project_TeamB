@@ -7,36 +7,34 @@ import {
 	TopRatedMovie,
 	NowPlayingMoviesResponse,
 	UpcomingMoviesResponse,
-	MovieDetails
-  } from "../../types/movie";
+	MovieDetails,
+} from "../../types/movie";
 import { Genre } from "../../types/genres";
 import { APIFetch } from "../../scripts/fetch/fetch";
 import { CardRow } from "../../Components/cardRow/CardRow";
 import { Movie } from "../../types/movie";
 
 export interface movieDetails {
-	  movieData: Movie[];
-	}
+	movieData: Movie[];
+}
 
 export const GenreContext = createContext<Genre[]>([]);
 
 export function Homepage() {
-
 	const [genrelist, setGenreList] = useState<Genre[]>([]);
 	const [popularMovies, setPopularMovies] = useState<Movie[]>([]);
 	const [topratedMovies, setTopRatedMovies] = useState<Movie[]>([]);
 	const [nowplayingdMovies, setNowPlayingMovies] = useState<Movie[]>([]);
 	const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([]);
 
-  //Genre useEffect
-  useEffect(() => {
-    const fetchGenre = async () => {
-      const data = await APIFetch("/genre/movie/list");
-      setGenreList(data.genres);
-    };
-    fetchGenre();
-  }, []);
-
+	//Genre useEffect
+	useEffect(() => {
+		const fetchGenre = async () => {
+			const data = await APIFetch("/genre/movie/list");
+			setGenreList(data.genres);
+		};
+		fetchGenre();
+	}, []);
 
 	//Movie list useEffect
 	useEffect(() => {
@@ -48,28 +46,35 @@ export function Homepage() {
 			// //   return { movieData: movie, genre: movie.genre_ids };
 			// // });
 			// setPopularMovies(data.results);
-			
-			const dataupcoming = (await APIFetch("/movie/upcoming")) as UpcomingMoviesResponse;
-			const upcomingdata:Movie[] = dataupcoming.results
+
+			const dataupcoming = (await APIFetch(
+				"/movie/upcoming"
+			)) as UpcomingMoviesResponse;
+			const upcomingdata: Movie[] = dataupcoming.results;
 			setUpcomingMovies(upcomingdata);
 
-			const datanowplaying = (await APIFetch("/movie/now_playing")) as NowPlayingMoviesResponse;
-			const nowdata:Movie[] = datanowplaying.results
+			const datanowplaying = (await APIFetch(
+				"/movie/now_playing"
+			)) as NowPlayingMoviesResponse;
+			const nowdata: Movie[] = datanowplaying.results;
 			setNowPlayingMovies(nowdata);
 
-			const datapop = (await APIFetch("/movie/popular")) as PopularMoviesResponse;
-			const popdata:Movie[] = datapop.results 
+			const datapop = (await APIFetch(
+				"/movie/popular"
+			)) as PopularMoviesResponse;
+			const popdata: Movie[] = datapop.results;
 			setPopularMovies(popdata);
 
-			const datatoprated = (await APIFetch("/movie/top_rated")) as TopRatedMovie;
-			const toprateddata: Movie[] = datatoprated.results
+			const datatoprated = (await APIFetch(
+				"/movie/top_rated"
+			)) as TopRatedMovie;
+			const toprateddata: Movie[] = datatoprated.results;
 			setTopRatedMovies(toprateddata);
 		};
 		fetchRows();
 	}, []);
 
-
-  //   const [searchedMovies, setSearchedMovies] = useState<MovieDetails[]>([]);
+	//   const [searchedMovies, setSearchedMovies] = useState<MovieDetails[]>([]);
 
 	return (
 		<div className='App'>
@@ -81,7 +86,7 @@ export function Homepage() {
 			<GenreContext.Provider value={genrelist}>
 				<div className='card__netflixOriginal'>
 					<div className='card_title'>
-						<h2>Netflix Original</h2>
+						<h2>Popular Films</h2>
 					</div>
 					<div className='original__movies'>
 						<CardRow title='Netflix' movies={popularMovies} />
